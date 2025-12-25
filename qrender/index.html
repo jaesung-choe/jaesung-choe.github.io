@@ -3,23 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="description" content="Quantile Rendering: Efficiently Embedding High-dimensional Feature on 3D Gaussian Splatting">
-  <meta name="keywords" content="3D Gaussian Splatting, Quantile Rendering, Semantic Segmentation, Computer Vision, Deep Learning">
+  <meta name="keywords" content="3D Gaussian Splatting, Quantile Rendering, Semantic Segmentation, Computer Vision">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Quantile Rendering: Efficiently Embedding High-dimensional Feature on 3D Gaussian Splatting</title>
 
-  <meta property="og:site_name" content="Quantile Rendering">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Quantile Rendering: Efficiently Embedding High-dimensional Feature on 3D Gaussian Splatting">
-  <meta property="og:description" content="Efficient rendering algorithm for 3D Gaussians achieving ~43.7x speed gains for high-dimensional features.">
-  <meta property="og:image" content="static/images/social_preview.png"> <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Quantile Rendering">
-  <meta name="twitter:description" content="Efficient rendering algorithm for 3D Gaussians achieving ~43.7x speed gains for high-dimensional features.">
-  <meta name="twitter:image" content="static/images/social_preview.png">
-
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="static/css/index.css">
@@ -27,13 +18,14 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="static/js/fontawesome.all.min.js"></script>
   <script src="static/js/bulma-carousel.min.js"></script>
-  <script src="static/js/bulma-slider.min.js"></script>
   <script src="static/js/index.js"></script>
 
   <style>
+    /* Custom Styles */
     .highlight-section {
       text-align: center;
-      margin: 40px auto;
+      /* Reduced top margin to fix empty space issue */
+      margin: 10px auto 40px auto; 
       padding: 0 20px;
       max-width: 900px;
     }
@@ -47,8 +39,6 @@
       color: #76B900; /* NVIDIA Green */
       font-weight: 800;
     }
-
-    /* Single Video Container */
     .video-container {
       width: 100%;
       max-width: 960px;
@@ -63,59 +53,10 @@
       height: auto;
       display: block;
     }
-    
-    /* Video Comparison Slider Styles */
-    .video-compare-container {
-      position: relative;
-      width: 100%;
-      max-width: 960px;
-      margin: 0 auto;
-      border-radius: 12px;
-      overflow: hidden;
-      cursor: ew-resize;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-      line-height: 0; /* Removes bottom gap for video */
+    /* Reduce Hero Padding */
+    .hero-body {
+      padding-bottom: 1rem !important; 
     }
-    .video-compare-container video {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: cover;
-    }
-    #videoRight {
-      position: absolute;
-      top: 0;
-      left: 0;
-      clip-path: inset(0 50% 0 0);
-      z-index: 2;
-    }
-    #sliderHandle {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      width: 4px;
-      background: #76B900;
-      box-shadow: 0 0 5px rgba(0,0,0,0.5);
-      z-index: 10;
-      transform: translateX(-50%);
-      pointer-events: none; /* Let clicks pass through to container */
-    }
-    /* Label Styles for Before/After */
-    .video-label {
-      position: absolute;
-      top: 20px;
-      color: white;
-      font-weight: bold;
-      background: rgba(0,0,0,0.5);
-      padding: 5px 10px;
-      border-radius: 4px;
-      pointer-events: none;
-      z-index: 15;
-      font-family: 'Google Sans', sans-serif;
-    }
-    .label-left { left: 20px; }
-    .label-right { right: 20px; }
   </style>
 </head>
 <body>
@@ -185,7 +126,7 @@
 
 <section class="highlight-section">
   <h2 class="project-highlight">
-    <strong><span class="highlight">Quantile Rendering</span></strong> proposes efficiently rendering high-dimensional features on 3D-GS, allowing real-time rendering without compensating its performance on various tasks.
+    <strong><span class="highlight">Quantile Rendering</span></strong> proposes efficiently rendering high-dimensional features on 3D-GS, allowing real-time rendering without reducing its dimensionality of the original embeddings, such as CLIP or DINO.without reducing its dimensionality of the original embeddings, such as CLIP or DINO.
   </h2>
 </section>
   
