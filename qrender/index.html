@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Quantile Rendering: Efficiently Embedding High-dimensional Feature on 3D Gaussian Splatting">
+  <meta name="keywords" content="3D Gaussian Splatting, Quantile Rendering, Semantic Segmentation, Computer Vision">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quantile Rendering: Efficiently Embedding High-dimensional Feature on 3D Gaussian Splatting</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/index.js"></script>
+
+  <style>
+    /* Custom Styles */
+    .highlight-section {
+      text-align: center;
+      /* Reduced top margin to fix empty space issue */
+      margin: 10px auto 40px auto; 
+      padding: 0 20px;
+      max-width: 900px;
+    }
+    .project-highlight {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #222;
+      line-height: 1.6;
+    }
+    .highlight {
+      color: #76B900; /* NVIDIA Green */
+      font-weight: 800;
+    }
+    .video-container {
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      line-height: 0;
+    }
+    .video-container video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    /* Reduce Hero Padding */
+    .hero-body {
+      padding-bottom: 1rem !important; 
+    }
+  </style>
+</head>
+<body>
+
+<button class="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});" title="Scroll to top" style="position:fixed; bottom:20px; right:20px; z-index:99; display:none;">
+  <i class="fas fa-chevron-up"></i>
+</button>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          
+          <h1 class="title is-1 publication-title">
+            <span style="color:#76B900;">Quantile Rendering</span>: Efficiently Embedding High-dimensional Feature on 3D Gaussian Splatting
+          </h1>
+          
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://jeongyw12382.github.io" target="_blank">Yoonwoo Jeong</a><sup>1,2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://sunset1995.github.io" target="_blank">Cheng Sun</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://research.nvidia.com/person/frank-wang" target="_blank">Frank Wang</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://cvlab.postech.ac.kr/~mcho" target="_blank">Minsu Cho</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://jaesung-choe.github.io" target="_blank">Jaesung Choe</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>NVIDIA,</span>
+            <span class="author-block"><sup>2</sup>POSTECH,</span>
+            <br>
+            <span class="author-block"><strong>arXiv 2025</strong></span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2512.20927" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code (TBU)</span>
+                </a>
+              </span>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="highlight-section">
+  <h2 class="project-highlight">
+    <strong><span class="highlight">Quantile Rendering</span></strong> proposes an efficient method for rendering high-dimensional features on 3D-GS, enabling real-time rendering without reducing the dimensionality of the original embeddings, such as CLIP or DINO.
+  </h2>
+</section>
+  
+<section class="section" style="background-color: #f5f5f5;">
+  <div class="container">
+    <h2 class="title is-3 has-text-centered">Video Teaser</h2>
+    
+    <div class="video-container">
+      <video src="static/videos/teaser.mp4" controls autoplay loop muted playsinline></video>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We present <strong>Quantile Rendering (Q-Render)</strong>, an efficient rendering algorithm for 3D Gaussians that involve high-dimensional feature vectors. Unlike conventional volume rendering, which densely samples all 3D Gaussians intersecting each ray, Q-Render sparsely samples 3D Gaussians that have dominant influence along ray. The dominance is determined by transmittance change analysis, and the only sampled Gaussians will participate in subsequent rendering steps such as alpha blending. 
+          </p>
+          <p>
+            In our framework, Q-Render is integrated with a conventional 3D neural network that operates on 3D Gaussians, named Gaussian Splatting Network (GS-Net), to predict Gaussian features. We evaluate GS-Net on open-vocabulary 3D semantic segmentation using two benchmarks: (1) ScanNet and (2) LeRF-OVS, where 3D Gaussians are enriched with CLIP-based language features. Extensive experiments show that Q-Render under GS-Net consistently outperforms existing methods, achieving superior results and highlighting its potential as an effective bridge between 2D foundation models and 3D Gaussian representations. Furthermore, our Q-render achieves <strong>~43.7× speed gains</strong> against previous methods when rendering 512-D feature maps.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Method & Results</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        
+        <div class="item">
+          <img src="static/images/method1.png" alt="Method 1" style="width:100%; object-fit:contain; max-height:600px; display:block; margin: 0 auto;"/>
+          <h2 class="subtitle has-text-centered" style="margin-top:15px;">
+            We introduce <span class="highlight">Quantile Rendering</span>, a CUDA-accelerated rendering mechanism that supports real-time rendering.
+          </h2>
+        </div>
+        
+        <div class="item">
+          <img src="static/images/method2.png" alt="Method 2" style="width:100%; object-fit:contain; max-height:600px; display:block; margin: 0 auto;"/>
+          <h2 class="subtitle has-text-centered" style="margin-top:15px;">
+            We propose <span class="highlight">GS-Net</span> for predicting feature-metric Gaussian Splatting, enabling scene-level generalization.
+          </h2>
+        </div>
+
+        <div class="item">
+          <img src="static/images/comparison.png" alt="Comparison" style="width:100%; object-fit:contain; max-height:600px; display:block; margin: 0 auto;"/>
+          <h2 class="subtitle has-text-centered" style="margin-top:15px;">
+             Our <span class="highlight">Quantile Rendering</span> achieves higher performance while preserving real-time rendering efficiency.
+          </h2>
+        </div>
+
+        <div class="item">
+          <img src="static/images/results.png" alt="Results" style="width:100%; object-fit:contain; max-height:600px; display:block; margin: 0 auto;"/>
+          <h2 class="subtitle has-text-centered" style="margin-top:15px;">
+            Q-Render achieves state-of-the-art performance on ScanNet and LERF benchmarks.
+          </h2>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{jeong2025qrender,
+  title={Quantile Rendering: Efficiently Embedding High-dimensional Feature on 3D Gaussian Splatting},
+  author={Jeong, Yoonwoo and Sun, Cheng and Wang, Yu-Chiang Frank and Cho, Minsu and Choe, Jaesung},
+  journal={arXiv},
+  year={2025},
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        Website template from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.getElementById('compareContainer');
+  const videoLeft = document.getElementById('videoLeft');
+  const videoRight = document.getElementById('videoRight');
+  const handle = document.getElementById('sliderHandle');
+
+  // Sync videos
+  let isLoaded = 0;
+  function syncVideos() {
+    isLoaded++;
+    if (isLoaded === 2) {
+      videoLeft.currentTime = 0;
+      videoRight.currentTime = 0;
+      videoLeft.play();
+      videoRight.play();
+    }
+  }
+
+  videoLeft.onloadeddata = syncVideos;
+  videoRight.onloadeddata = syncVideos;
+
+  // Handle Logic
+  function moveSlider(e) {
+    const rect = container.getBoundingClientRect();
+    // Calculate position X relative to container
+    let x = (e.clientX || e.touches[0].clientX) - rect.left;
+    
+    // Clamp values
+    x = Math.max(0, Math.min(x, rect.width));
+    
+    const percentage = (x / rect.width) * 100;
+    
+    handle.style.left = percentage + "%";
+    // Clip-path inset: top right bottom left
+    // We want to hide the RIGHT part of the top video (videoRight)
+    videoRight.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+  }
+
+  container.addEventListener('mousemove', moveSlider);
+  container.addEventListener('touchmove', moveSlider);
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const videos = document.querySelectorAll('video');
+  videos.forEach(video => {
+    video.addEventListener('loadeddata', () => {
+        // Optional: Force jump to 0.1s to ensure a frame is rendered for poster
+        video.currentTime = 0.1;
+    });
+  });
+});
+</script>
+
+</body>
+</html>
