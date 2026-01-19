@@ -270,50 +270,6 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const container = document.getElementById('compareContainer');
-  const videoLeft = document.getElementById('videoLeft');
-  const videoRight = document.getElementById('videoRight');
-  const handle = document.getElementById('sliderHandle');
-
-  // Sync videos
-  let isLoaded = 0;
-  function syncVideos() {
-    isLoaded++;
-    if (isLoaded === 2) {
-      videoLeft.currentTime = 0;
-      videoRight.currentTime = 0;
-      videoLeft.play();
-      videoRight.play();
-    }
-  }
-
-  videoLeft.onloadeddata = syncVideos;
-  videoRight.onloadeddata = syncVideos;
-
-  // Handle Logic
-  function moveSlider(e) {
-    const rect = container.getBoundingClientRect();
-    // Calculate position X relative to container
-    let x = (e.clientX || e.touches[0].clientX) - rect.left;
-    
-    // Clamp values
-    x = Math.max(0, Math.min(x, rect.width));
-    
-    const percentage = (x / rect.width) * 100;
-    
-    handle.style.left = percentage + "%";
-    // Clip-path inset: top right bottom left
-    // We want to hide the RIGHT part of the top video (videoRight)
-    videoRight.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
-  }
-
-  container.addEventListener('mousemove', moveSlider);
-  container.addEventListener('touchmove', moveSlider);
-});
-</script>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
   const videos = document.querySelectorAll('video');
   videos.forEach(video => {
     video.addEventListener('loadeddata', () => {
