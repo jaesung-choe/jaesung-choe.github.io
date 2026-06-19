@@ -139,6 +139,7 @@
       height: auto;
       border-radius: 4px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      cursor: zoom-in;
     }
 
     /* Video Container (Identical to .paper-image) */
@@ -155,6 +156,71 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       display: block; /* Removes tiny gap below video */
       background-color: #000; /* Optional: good for loading state */
+      cursor: zoom-in;
+    }
+
+    .paper-image img:focus-visible,
+    .paper-video video:focus-visible {
+      outline: 3px solid #0066cc;
+      outline-offset: 4px;
+    }
+
+    body.teaser-lightbox-open {
+      overflow: hidden;
+    }
+
+    .teaser-lightbox[hidden] {
+      display: none;
+    }
+
+    .teaser-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 36px;
+      background: rgba(0, 0, 0, 0.78);
+    }
+
+    .teaser-lightbox-media {
+      position: relative;
+      max-width: min(1100px, 92vw);
+      max-height: 88vh;
+    }
+
+    .teaser-lightbox-media img,
+    .teaser-lightbox-media video {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: 92vw;
+      max-height: 88vh;
+      border-radius: 4px;
+      background: #fff;
+      box-shadow: 0 12px 36px rgba(0,0,0,0.35);
+    }
+
+    .teaser-lightbox-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 40px;
+      height: 40px;
+      border: 0;
+      border-radius: 20px;
+      color: #111;
+      background: rgba(255,255,255,0.92);
+      font-size: 24px;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+    }
+
+    .teaser-lightbox-close:focus-visible {
+      outline: 3px solid #0066cc;
+      outline-offset: 3px;
     }
 
     /* Mobile Tweaks */
@@ -177,6 +243,14 @@
         width: min(300px, 100%);
         margin: 0 auto;
         max-width: 300px;
+      }
+      .teaser-lightbox {
+        padding: 16px;
+      }
+      .teaser-lightbox-media img,
+      .teaser-lightbox-media video {
+        max-width: 94vw;
+        max-height: 82vh;
       }
     }
   </style>
@@ -223,7 +297,7 @@
 
       <article class="paper highlight"> <!-- dvsm -->
         <div class="paper-image">
-          <img src="images/dvsm.png" alt="DVSM Thumbnail">
+          <img src="images/dvsm_v1.png" alt="DVSM Thumbnail">
         </div>
         <div class="paper-content">
           <h3>
@@ -596,6 +670,81 @@
     </footer>-->
  
   </div>
+
+  <div id="teaserLightbox" class="teaser-lightbox" role="dialog" aria-modal="true" aria-label="Paper teaser preview" hidden>
+    <button type="button" class="teaser-lightbox-close" aria-label="Close teaser preview">&times;</button>
+    <div class="teaser-lightbox-media"></div>
+  </div>
+
+  <script>
+    const lightbox = document.getElementById('teaserLightbox');
+    const lightboxMedia = lightbox.querySelector('.teaser-lightbox-media');
+    const lightboxClose = lightbox.querySelector('.teaser-lightbox-close');
+    let activeTeaser = null;
+
+    function openTeaserLightbox(teaser) {
+      activeTeaser = teaser;
+      lightboxMedia.replaceChildren();
+
+      if (teaser.tagName === 'VIDEO') {
+        const preview = document.createElement('video');
+        Array.from(teaser.querySelectorAll('source')).forEach((source) => {
+          preview.appendChild(source.cloneNode(true));
+        });
+        preview.controls = true;
+        preview.autoplay = true;
+        preview.loop = teaser.loop;
+        preview.muted = teaser.muted;
+        preview.playsInline = true;
+        lightboxMedia.appendChild(preview);
+        preview.load();
+      } else {
+        const preview = document.createElement('img');
+        preview.src = teaser.currentSrc || teaser.src;
+        preview.alt = teaser.alt || '';
+        lightboxMedia.appendChild(preview);
+      }
+
+      lightbox.hidden = false;
+      document.body.classList.add('teaser-lightbox-open');
+      lightboxClose.focus();
+    }
+
+    function closeTeaserLightbox() {
+      if (lightbox.hidden) return;
+
+      lightbox.hidden = true;
+      document.body.classList.remove('teaser-lightbox-open');
+      lightboxMedia.replaceChildren();
+
+      if (activeTeaser) {
+        activeTeaser.focus();
+        activeTeaser = null;
+      }
+    }
+
+    document.querySelectorAll('.paper-image img, .paper-video video').forEach((teaser) => {
+      teaser.tabIndex = 0;
+      teaser.setAttribute('role', 'button');
+      teaser.setAttribute('aria-label', `Open larger teaser: ${teaser.alt || 'Paper teaser'}`);
+
+      teaser.addEventListener('click', () => openTeaserLightbox(teaser));
+      teaser.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openTeaserLightbox(teaser);
+        }
+      });
+    });
+
+    lightboxClose.addEventListener('click', closeTeaserLightbox);
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) closeTeaserLightbox();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeTeaserLightbox();
+    });
+  </script>
 
 </body>
 </html>
