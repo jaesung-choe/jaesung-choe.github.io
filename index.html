@@ -112,9 +112,13 @@
       font-weight: 720;
     }
 
-    .hero-summary {
+    .intro-copy {
       max-width: 690px;
       margin: 18px 0 0;
+    }
+
+    .hero-summary {
+      margin: 0;
       color: var(--muted);
       font-size: 1.08rem;
     }
@@ -132,6 +136,12 @@
       align-items: center;
       min-height: 32px;
       border-bottom: 1px solid rgba(15, 92, 168, 0.35);
+    }
+
+    .intro-note {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 0.96rem;
     }
 
     .profile-frame {
@@ -424,14 +434,14 @@
         justify-self: start;
       }
 
-      .hero-summary {
+      .intro-copy {
         order: 3;
         margin-top: 0;
       }
 
       .link-row {
         order: 4;
-        margin-top: 4px;
+        margin-top: 8px;
       }
 
       .focus-grid {
@@ -499,10 +509,13 @@
     <header class="hero">
       <div class="hero-copy">
         <h1>Jaesung Choe</h1>
-        <p class="hero-summary">
-          I am a research scientist at <a href="https://research.nvidia.com/labs/twn/">NVIDIA Research Taiwan</a>.
-          I have worked on computer vision for 3D scenes.
-        </p>
+        <div class="intro-copy">
+          <p class="hero-summary">
+            I am a research scientist at <a href="https://research.nvidia.com/labs/twn/">NVIDIA Research Taiwan</a>.
+            I have worked on computer vision for 3D scenes.
+          </p>
+          <p class="intro-note">📌 Internship / University Collaboration. I am always looking for strong graduate students to collaborate with. If you are interested in collaborating with me, please email me.</p>
+        </div>
         <div class="link-row" aria-label="Profile links">
           <a href="mailto:jchoe@nvidia.com">Email</a>
           <a href="https://drive.google.com/file/d/1rFHwf0bPE34dMwDoAEDkbrDHB0GGXa2K/view?usp=sharing">CV</a>
@@ -518,7 +531,6 @@
     <main>
       <section id="news" aria-labelledby="news-title">
         <h2 id="news-title">News</h2>
-        <p class="column-note">📌 <strong>University collaboration is always open!</strong><br>If your research interests match mine and you have an idea you would like to discuss and develop together, please feel free to contact me about possible collaboration. For university collaboration, shared research interests are the most important factor.</p>
         <ul class="news-list">
           <li>
             <span class="date">Jun 2026</span>
@@ -565,8 +577,7 @@
               <h3><a href="https://gaussexplorer.github.io/">SplatReasoner: Enhancing Embodied Reasoning and Grounding by Novel View Synthesis</a></h3>
               <p class="publication-meta">ECCV 2026</p>
               <p class="authors">Kim Yu-Ji, Dahye Lee, Kim Jun-Seong, GeonU Kim, Nam Hyeon-Woo, Yongjin Kwon, Yu-Chiang Frank Wang, <strong>Jaesung Choe</strong>, Tae-Hyun Oh.</p>
-              <p class="description">Novel-view synthesis improves the reasoning capabilities of embodied agents.</p>
-              <p class="notes">Academic collaboration with KAIST and POSTECH.</p>
+              <p class="description">Novel-view synthesis improves the reasoning capabilities of VLMs in 3D scenes.</p>
               <p class="paper-links"><a href="https://gaussexplorer.github.io/">Project</a><a href="https://arxiv.org/abs/2601.13132">Paper</a></p>
             </div>
           </article>
@@ -580,7 +591,6 @@
               <p class="publication-meta">CVPR 2026</p>
               <p class="authors">Sheng-Yu Huang, <strong>Jaesung Choe</strong>, Yu-Chiang Frank Wang, Cheng Sun</p>
               <p class="description">Any VLMs or LLMs can now reason over 3D scenes.</p>
-              <p class="notes">NVIDIA research paper.</p>
               <p class="paper-links"><a href="https://peterjohnsonhuang.github.io/openvoxel-pages">Project</a><a href="https://arxiv.org/pdf/2601.09575">Paper</a></p>
             </div>
           </article>
@@ -591,10 +601,9 @@
             </a>
             <div>
               <h3><a href="https://arxiv.org/abs/2605.29891">DVSM: Decoder-only View Synthesis Model Done Right</a></h3>
-              <p class="publication-meta">arXiv 2026</p>
+              <p class="publication-meta">NVIDIA 2026</p>
               <p class="authors">Cheng Sun, <strong>Jaesung Choe</strong>, Min-Hung Chen, Ryo Hachiuma, Yu-Chiang Frank Wang</p>
-              <p class="description">A decoder-only view synthesis model that represents scenes as a KV-cache and shares weights between reconstruction and rendering.</p>
-              <p class="notes">NVIDIA research paper.</p>
+              <p class="description">3D scene is encoded as KV-cache by our decoder-only model.</p>
               <p class="paper-links"><a href="https://arxiv.org/abs/2605.29891">Paper</a></p>
             </div>
           </article>
@@ -605,10 +614,9 @@
             </a>
             <div>
               <h3><a href="mv_sam/index.html">MV-SAM: Multi-view Promptable Segmentation using Pointmap Guidance</a></h3>
-              <p class="publication-meta">arXiv 2026</p>
+              <p class="publication-meta">NVIDIA 2026</p>
               <p class="authors">Yoonwoo Jeong, Cheng Sun, Yu-Chiang Frank Wang, Minsu Cho, <strong>Jaesung Choe</strong></p>
-              <p class="description">Multi-view promptable segmentation that achieves 3D consistency using pointmaps.</p>
-              <p class="notes">NVIDIA research paper.</p>
+              <p class="description">View-consistent segmentation using pointmaps</p>
               <p class="paper-links"><a href="mv_sam/index.html">Project</a><a href="https://arxiv.org/abs/2601.17866">Paper</a></p>
             </div>
           </article>
@@ -619,10 +627,9 @@
             </a>
             <div>
               <h3><a href="qrender/index.html">Quantile Rendering: Efficiently Embedding High-dimensional Feature on 3D Gaussian Splatting</a></h3>
-              <p class="publication-meta">arXiv 2025</p>
+              <p class="publication-meta">NVIDIA 2025</p>
               <p class="authors">Yoonwoo Jeong, Cheng Sun, Yu-Chiang Frank Wang, Minsu Cho, <strong>Jaesung Choe</strong></p>
-              <p class="description">Efficient feature rendering for 3D Gaussians, with large speed gains when rendering high-dimensional feature maps.</p>
-              <p class="notes">NVIDIA research paper.</p>
+              <p class="description">Efficient color/feature rendering algorithm from 3D Gaussians.</p>
               <p class="paper-links"><a href="qrender/index.html">Project</a><a href="https://arxiv.org/abs/2512.20927">Paper</a></p>
             </div>
           </article>
@@ -633,10 +640,9 @@
             </a>
             <div>
               <h3><a href="svrecon/index.html">SVRecon: Sparse Voxel Rasterization for Surface Reconstruction</a></h3>
-              <p class="publication-meta">arXiv 2025</p>
+              <p class="publication-meta">NVIDIA 2025</p>
               <p class="authors">Seunghun Oh, <strong>Jaesung Choe</strong>, Dongjae Lee, Daeun Lee, Seunghoon Jeong, Yu-Chiang Frank Wang, Jaesik Park.</p>
               <p class="description">Voxel-wise associations among parent-child and sibling voxel groups produce smoother surface reconstruction.</p>
-              <p class="notes">Academic collaboration with Seoul National University.</p>
               <p class="paper-links"><a href="svrecon/index.html">Project</a><a href="https://arxiv.org/abs/2511.17364">Paper</a><a href="https://github.com/alvin0808/svraster">Code</a></p>
             </div>
           </article>
@@ -650,7 +656,6 @@
               <p class="publication-meta">CVPR 2025 (highlight Top 3.7%)</p>
               <p class="authors">Kim Jun-Seong, GeonU Kim, Kim Yu-Ji, Yu-Chiang Frank Wang, <strong>Jaesung Choe*</strong>, Tae-Hyun Oh*</p>
               <p class="description">Language knowledge is distilled into 3D Gaussian Splatting for direct referring.</p>
-              <p class="notes">Winner of Qualcomm Innovation Fellowship Korea. Academic collaboration with POSTECH.</p>
               <p class="paper-links"><a href="https://drsplat.github.io/">Project</a><a href="https://arxiv.org/pdf/2502.16652">Paper</a><a href="https://github.com/kaist-ami/Dr-Splat">Code</a></p>
             </div>
           </article>
@@ -663,8 +668,7 @@
               <h3><a href="https://nvlabs.github.io/Mosaic3D/">Mosaic3D: Foundation Dataset and Model for Open-Vocabulary 3D Segmentation</a></h3>
               <p class="publication-meta">CVPR 2025</p>
               <p class="authors">Junha Lee*, Chunghyun Park*, <strong>Jaesung Choe</strong>, Yu-Chiang Frank Wang, Jan Kautz, Minsu Cho, Christopher Choy</p>
-              <p class="description">A data generation pipeline uses 2D foundation models to synthesize 3D mask-text paired data.</p>
-              <p class="notes">NVIDIA research paper.</p>
+              <p class="description">Data generation pipline from 2D images to 3D mask-text.</p>
               <p class="paper-links"><a href="https://nvlabs.github.io/Mosaic3D/">Project</a><a href="https://arxiv.org/pdf/2502.02548">Paper</a><a href="https://huggingface.co/datasets/junhalee/Mosaic3D">Data</a><a href="https://github.com/NVlabs/Mosaic3D">Code</a></p>
             </div>
           </article>
@@ -678,7 +682,6 @@
               <p class="publication-meta">CVPR 2025</p>
               <p class="authors">Cheng Sun, <strong>Jaesung Choe</strong>, Charles Loop, Wei-Chiu Ma, Yu-Chiang Frank Wang</p>
               <p class="description">Rasterization is extended into sparse voxel representations for real-time image rendering.</p>
-              <p class="notes">NVIDIA research paper.</p>
               <p class="paper-links"><a href="https://svraster.github.io/">Project</a><a href="https://arxiv.org/abs/2412.04459">Paper</a><a href="https://github.com/NVlabs/svraster">Code</a></p>
             </div>
           </article>
@@ -694,7 +697,6 @@
               <p class="publication-meta">ICCV 2023</p>
               <p class="authors"><strong>Jaesung Choe</strong>, Christopher Choy, Jaesik Park, In So Kweon, Anima Anandkumar</p>
               <p class="description">Spacetime surface regularization for 4D surface reconstruction and dynamic scene rendering.</p>
-              <p class="notes">NVIDIA research paper.</p>
               <p class="paper-links"><a href="https://openaccess.thecvf.com/content/ICCV2023/papers/Choe_Spacetime_Surface_Regularization_for_Neural_Dynamic_Scene_Reconstruction_ICCV_2023_paper.pdf">Paper</a></p>
             </div>
           </article>
@@ -792,7 +794,7 @@
         <div class="mentorship-stack">
           <div>
             <h3>Research Intern Mentorship</h3>
-            <p class="column-note">If you are interested in the research internship position, feel free to send me an email.</p>
+            <p class="column-note">Usually, I have a chance to hire one intern at each year. Feel free to send me an email if you are interested in this position.</p>
             <ul class="year-list">
               <li><span class="year">2026</span><span><a href="https://ug-kim.github.io/">Kim Yu-Ji</a>, POSTECH -> with me</span></li>
               <li><span class="year">2024</span><span><a href="https://jeongyw12382.github.io/">Yoonwoo Jeong</a>, POSTECH -> with me -> Meta internship</span></li>
@@ -801,6 +803,7 @@
           </div>
           <div>
             <h3>Academic Collaboration</h3>
+            <p class="column-note">University collaborations are always welcome. I am happy to join academic collaborations when a student’s research goals align with my interests. Authorship order is not my main concern; I value the opportunity to contribute to meaningful and high-quality projects.</p>
             <ul class="year-list">
               <li><span class="year">2026</span><span>Open (feel free to reach out if interested!)</span></li>
               <li><span class="year">2025</span><span><a href="https://alvin0808.github.io/">Seunghun Oh</a>, Seoul National University -> with me -> UCLA</span></li>
@@ -814,7 +817,7 @@
     </main>
 
     <footer>
-      <p>Special thanks to Codex, Claude and Gemini for building this homepage</p>
+      <p>Special thanks to Codex, Claude and Gemini for building this homepage.</p>
     </footer>
   </div>
 
