@@ -32,6 +32,7 @@
       display: flex; /* Replaces the <table> layout */
       flex-wrap: wrap;
       align-items: center;
+      justify-content: space-between;
       gap: 40px;
       margin-bottom: 60px;
     }
@@ -43,6 +44,7 @@
 
     .profile-photo {
       flex: 0 0 250px; /* Fixed width for photo container */
+      margin-left: auto;
     }
 
     .profile-photo img {
@@ -295,28 +297,6 @@
         Representative papers are highlighted.
       </p>
 
-      <article class="paper highlight"> <!-- dvsm -->
-        <div class="paper-image">
-          <img src="images/dvsm_v1.png" alt="DVSM Thumbnail">
-        </div>
-        <div class="paper-content">
-          <h3>
-            <a href="https://arxiv.org/abs/2605.29891">DVSM: Decoder-only View Synthesis Model Done Right</a>
-          </h3>
-          <p class="authors">
-            Cheng Sun, <strong>Jaesung Choe</strong>, Min-Hung Chen, Ryo Hachiuma, Yu-Chiang Frank Wang
-          </p>
-          <p class="venue"><em>arXiv 2026</em></p>
-          <p class="description">
-            A decoder-only view synthesis model that represents scenes as a KV-cache and shares weights between reconstruction and rendering. </br>
-            <em>+ NVIDIA research paper.</em>
-          </p>
-          <p class="links">
-            [<a href="https://arxiv.org/abs/2605.29891">Paper</a>]
-          </p>
-        </div>
-      </article>
-
       <article class="paper"> <!-- splatreasoner -->
         <div class="paper-image">
           <img src="images/splatreasoner_v3.png" alt="SplatReasoner Thumbnail">
@@ -335,29 +315,6 @@
           </p>
           <p class="links">
             [<a href="https://arxiv.org/abs/2601.13132">Paper</a>]
-          </p>
-        </div>
-      </article>
-      
-      <article class="paper highlight"> <!-- mv_sam -->
-        <div class="paper-image">
-           <img src="images/mv_sam.png" alt="MV-SAM Thumbnail">
-        </div>
-        <div class="paper-content">
-          <h3>
-            <a href="mv_sam/index.html">MV-SAM: Multi-view Promptable Segmentation using Pointmap Guidance</a>
-          </h3>
-          <p class="authors">
-            Yoonwoo Jeong, Cheng Sun, Yu-Chiang Frank Wang, Minsu Cho, <strong>Jaesung Choe</strong>
-          </p>
-          <p class="venue"><em>arXiv 2026</em></p>
-          <p class="description">
-            Multi-view promptable segmentation that achieves 3D consistency using pointmaps. </br>
-            <em>+ NVIDIA research paper.</em>
-          </p>
-          <p class="links">
-            [<a href="mv_sam/index.html">Project</a>]
-            [<a href="https://arxiv.org/abs/2601.17866">Paper</a>]
           </p>
         </div>
       </article>
@@ -385,34 +342,54 @@
         </div>
       </article>
 
-      <article class="paper"> <!-- svrecon -->
+      <article class="paper highlight"> <!-- dvsm -->
         <div class="paper-image">
-          <img src="images/svrecon.png" alt="SVRecon Thumbnail">
+          <img src="images/dvsm_v1.png" alt="DVSM Thumbnail">
         </div>
         <div class="paper-content">
           <h3>
-            <a href="svrecon/index.html">SVRecon: Sparse Voxel Rasterization for Surface Reconstruction</a>
+            <a href="https://arxiv.org/abs/2605.29891">DVSM: Decoder-only View Synthesis Model Done Right</a>
           </h3>
           <p class="authors">
-            Seunghun Oh, <strong>Jaesung Choe</strong>, Dongjae Lee, Daeun Lee, Seunghoon Jeong, Yu-Chiang Frank Wang, Jaesik Park.
+            Cheng Sun, <strong>Jaesung Choe</strong>, Min-Hung Chen, Ryo Hachiuma, Yu-Chiang Frank Wang
           </p>
-          <p class="venue"><em>arXiv 2025</em></p>
+          <p class="venue"><em>arXiv 2026</em></p>
           <p class="description">
-            We strengthen voxel-wise associations among parent-child and sibling voxel groups, 
-            resulting in smoother surface reconstruction. </br>
-            <em>+ Academic collaboration with Seoul National University.</em>
+            A decoder-only view synthesis model that represents scenes as a KV-cache and shares weights between reconstruction and rendering. </br>
+            <em>+ NVIDIA research paper.</em>
           </p>
           <p class="links">
-            [<a href="svrecon/index.html">Project</a>]
-            [<a href="https://arxiv.org/abs/2511.17364">Paper</a>]
-            [<a href="https://github.com/alvin0808/svraster">Code</a>]
+            [<a href="https://arxiv.org/abs/2605.29891">Paper</a>]
+          </p>
+        </div>
+      </article>
+      
+      <article class="paper highlight"> <!-- mv_sam -->
+        <div class="paper-image">
+           <img src="images/mv_sam_v2.png" alt="MV-SAM Thumbnail">
+        </div>
+        <div class="paper-content">
+          <h3>
+            <a href="mv_sam/index.html">MV-SAM: Multi-view Promptable Segmentation using Pointmap Guidance</a>
+          </h3>
+          <p class="authors">
+            Yoonwoo Jeong, Cheng Sun, Yu-Chiang Frank Wang, Minsu Cho, <strong>Jaesung Choe</strong>
+          </p>
+          <p class="venue"><em>arXiv 2026</em></p>
+          <p class="description">
+            Multi-view promptable segmentation that achieves 3D consistency using pointmaps. </br>
+            <em>+ NVIDIA research paper.</em>
+          </p>
+          <p class="links">
+            [<a href="mv_sam/index.html">Project</a>]
+            [<a href="https://arxiv.org/abs/2601.17866">Paper</a>]
           </p>
         </div>
       </article>
 
       <article class="paper highlight"> <!-- qrender -->
         <div class="paper-image">
-           <img src="images/qrender.png" alt="Quantile Render Thumbnail">
+           <img src="images/qrender_v2.png" alt="Quantile Render Thumbnail">
         </div>
         <div class="paper-content">
           <h3>
@@ -429,6 +406,31 @@
           <p class="links">
             [<a href="qrender/index.html">Project</a>]
             [<a href="https://arxiv.org/abs/2512.20927">Paper</a>]
+          </p>
+        </div>
+      </article>
+
+      <article class="paper"> <!-- svrecon -->
+        <div class="paper-image">
+          <img src="images/svrecon.png" alt="SVRecon Thumbnail">
+        </div>
+        <div class="paper-content">
+          <h3>
+            <a href="svrecon/index.html">SVRecon: Sparse Voxel Rasterization for Surface Reconstruction</a>
+          </h3>
+          <p class="authors">
+            Seunghun Oh, <strong>Jaesung Choe</strong>, Dongjae Lee, Daeun Lee, Seunghoon Jeong, Yu-Chiang Frank Wang, Jaesik Park.
+          </p>
+          <p class="venue"><em>arXiv 2025</em></p>
+          <p class="description">
+            We strengthen voxel-wise associations among parent-child and sibling voxel groups,
+            resulting in smoother surface reconstruction. </br>
+            <em>+ Academic collaboration with Seoul National University.</em>
+          </p>
+          <p class="links">
+            [<a href="svrecon/index.html">Project</a>]
+            [<a href="https://arxiv.org/abs/2511.17364">Paper</a>]
+            [<a href="https://github.com/alvin0808/svraster">Code</a>]
           </p>
         </div>
       </article>
