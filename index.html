@@ -1,170 +1,341 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Jaesung Choe</title>
-  <meta name="google-adsense-account" content="ca-pub-3467857769900406">
-  
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3467857769900406"
-     crossorigin="anonymous"></script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jaesung Choe</title>
+  <meta name="description" content="Jaesung Choe is a research scientist at NVIDIA Research Taiwan working on computer vision, 3D scene understanding, and vision-language action.">
   <style>
-    /* Global Styles */
+    :root {
+      --text: #1f2933;
+      --muted: #5e6b78;
+      --line: #dce3ea;
+      --surface: #ffffff;
+      --subtle: #f6f8f6;
+      --accent: #4f8f16;
+      --accent-soft: #edf6e7;
+      --link: #0f5ca8;
+      --max-width: 1080px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background: var(--surface);
+    }
+
     body {
-      font-family: 'Lato', Verdana, Helvetica, sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
-      color: #333;
-      background-color: #fff;
       margin: 0;
-      padding: 0;
+      color: var(--text);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      background: var(--surface);
     }
 
-    /* Container to center content and limit width */
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-
-    /* Header / Bio Section */
-    header {
-      display: flex; /* Replaces the <table> layout */
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 40px;
-      margin-bottom: 60px;
-    }
-
-    .bio-text {
-      flex: 1; /* Takes up remaining space */
-      min-width: 300px;
-    }
-
-    .profile-photo {
-      flex: 0 0 250px; /* Fixed width for photo container */
-      margin-left: auto;
-    }
-
-    .profile-photo img {
-      width: 100%;
-      /* border-radius: 50%; Optional: circular profile pic */
-      border-radius: 4px; /* Rectangular with slightly soft corners */
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    /* Links and Buttons */
     a {
-      color: #0066cc;
+      color: var(--link);
       text-decoration: none;
+      text-underline-offset: 3px;
     }
+
     a:hover {
       text-decoration: underline;
     }
 
-    /* Headings */
-    h1 {
-      font-size: 1.5em;
-      margin-bottom: 10px;
+    img,
+    video {
+      max-width: 100%;
+      height: auto;
+      display: block;
     }
-    h2 {
-      /* font-size: 1.5em; */
-      border-bottom: 2px solid #eee;
-      padding-bottom: 10px;
-      margin-top: 50px;
-      margin-bottom: 20px;
+
+    .site-shell {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 28px 24px 56px;
     }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 4px 0 34px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .site-mark {
+      color: var(--text);
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 14px 18px;
+      font-size: 0.94rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 260px;
+      gap: 48px;
+      align-items: center;
+      padding: 56px 0 42px;
+    }
+
+    h1,
+    h2,
     h3 {
-      /* font-size: 1.0em; Adjusted for better scale */
-      margin-top: 0;    /* <--- THIS IS THE KEY FIX */
-      margin-bottom: 5px;
-      line-height: 1.2; /* Keeps the title compact */
+      margin: 0;
+      line-height: 1.2;
+      letter-spacing: 0;
     }
 
-    /* Research/News Lists */
-    .news-list {
-      list-style: none;
-      padding: 0;
-    }
-    .news-list li {
-      margin-bottom: 10px;
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      font-weight: 760;
     }
 
-    /* Year-based List Styling */
+    h2 {
+      font-size: clamp(1.35rem, 2.4vw, 1.8rem);
+      margin-bottom: 18px;
+    }
+
+    h3 {
+      font-size: 1.08rem;
+      font-weight: 720;
+    }
+
+    .hero-summary {
+      max-width: 690px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      margin-top: 24px;
+      font-weight: 650;
+    }
+
+    .link-row a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      border-bottom: 1px solid rgba(15, 92, 168, 0.35);
+    }
+
+    .profile-frame {
+      width: 260px;
+      justify-self: end;
+    }
+
+    .profile-frame img {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 16px 34px rgba(31, 41, 51, 0.12);
+    }
+
+    section {
+      padding: 36px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-lead {
+      max-width: 720px;
+      margin: -6px 0 24px;
+      color: var(--muted);
+    }
+
+    .news-list,
     .year-list {
       list-style: none;
+      margin: 0;
       padding: 0;
     }
-    
+
+    .news-list li,
     .year-list li {
-      display: flex;        /* Aligns Year and Name side-by-side */
-      margin-bottom: 10px;  /* Space between rows */
-    }
-    
-    .year-col {
-      flex: 0 0 60px;       /* Fixed width for the year column */
-      font-weight: bold;
-      color: #666;          /* Slightly grey for contrast */
-    }
-    
-    .text-col {
-      flex: 1;              /* Takes up remaining space */
+      display: grid;
+      grid-template-columns: 96px minmax(0, 1fr);
+      gap: 18px;
+      padding: 10px 0;
+      border-bottom: 1px solid #eef2f5;
     }
 
-    /* Research Papers Layout */
-    .paper {
-      display: flex;
-      padding: 20px;
-      gap: 20px;
-      margin-bottom: 0px;        /* no gap between papers */
-      margin-top: 0;             /* Changed from 5px to 0 */
-      align-items: flex-start;
+    .date,
+    .year {
+      color: var(--muted);
+      font-size: 0.93rem;
+      font-weight: 700;
     }
 
-    /* THE HIGHLIGHT CLASS */
-    .paper.highlight {
-      background-color: #defaaf; /* The Green Color */
-      padding: 20px;             /* Adds breathing room inside the color */
-      border-radius: 8px;        /* Makes the colored box look smoother */
-      margin-bottom: 0px;        /* no gap between papers */
-      margin-top: 0;             /* Changed from 5px to 0 */
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
     }
-    
-    .paper-image {
-      flex: 0 0 300px; /* Fixed width for paper thumbnails */
+
+    .focus-item {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
     }
-    
-    .paper-image img {
-      width: 100%;
-      height: auto;
-      border-radius: 4px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+
+    .focus-item p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .publication-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .publication {
+      display: grid;
+      grid-template-columns: 300px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .publication.featured {
+      border-color: #cfe3c0;
+      background: var(--accent-soft);
+    }
+
+    .teaser {
+      display: block;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .teaser[aria-haspopup="dialog"] {
       cursor: zoom-in;
     }
 
-    /* Video Container (Identical to .paper-image) */
-    .paper-video {
-      flex: 0 0 300px; /* Fixed width matching paper-image */
-      margin-top: 0;   /* Ensures top alignment */
-    }
-
-    /* Video Element Styles */
-    .paper-video video {
-      width: 100%;
-      height: auto;
-      border-radius: 4px; /* Matches your image style */
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      display: block; /* Removes tiny gap below video */
-      background-color: #000; /* Optional: good for loading state */
-      cursor: zoom-in;
-    }
-
-    .paper-image img:focus-visible,
-    .paper-video video:focus-visible {
-      outline: 3px solid #0066cc;
+    .teaser:focus-visible {
+      outline: 3px solid rgba(79, 143, 22, 0.28);
       outline-offset: 4px;
+    }
+
+    .teaser img,
+    .teaser video {
+      display: block;
+      width: 100%;
+    }
+
+    .text-teaser {
+      min-height: 168px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      color: var(--accent);
+      font-weight: 760;
+      line-height: 1.25;
+      text-align: center;
+      text-decoration: none;
+      background: #f8fbf6;
+    }
+
+    .publication-meta {
+      margin: 7px 0 8px;
+      color: var(--accent);
+      font-weight: 760;
+      font-size: 0.95rem;
+    }
+
+    .authors,
+    .description,
+    .notes,
+    .paper-links {
+      margin: 8px 0 0;
+    }
+
+    .authors,
+    .description {
+      color: var(--muted);
+    }
+
+    .notes {
+      color: #415322;
+      font-size: 0.94rem;
+      font-style: italic;
+    }
+
+    .paper-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 12px;
+      font-size: 0.94rem;
+      font-weight: 650;
+    }
+
+    .student-papers-toggle {
+      display: flex;
+      justify-content: center;
+      padding: 4px 0;
+    }
+
+    .reveal-button {
+      min-height: 42px;
+      padding: 9px 16px;
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      color: var(--accent);
+      background: #fff;
+      font: inherit;
+      font-weight: 720;
+      cursor: pointer;
+    }
+
+    .reveal-button:hover,
+    .reveal-button:focus-visible {
+      background: var(--accent-soft);
+    }
+
+    .reveal-button:focus-visible {
+      outline: 3px solid rgba(79, 143, 22, 0.25);
+      outline-offset: 3px;
+    }
+
+    .student-papers {
+      display: grid;
+      gap: 18px;
+    }
+
+    .student-papers[hidden] {
+      display: none;
+    }
+
+    .column-note {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .mentorship-stack {
+      display: grid;
+      gap: 30px;
     }
 
     body.teaser-lightbox-open {
@@ -183,12 +354,11 @@
       align-items: center;
       justify-content: center;
       padding: 36px;
-      background: rgba(0, 0, 0, 0.78);
+      background: rgba(15, 20, 12, 0.82);
     }
 
     .teaser-lightbox-media {
-      position: relative;
-      max-width: min(1100px, 92vw);
+      max-width: min(1280px, 94vw);
       max-height: 88vh;
     }
 
@@ -197,480 +367,433 @@
       display: block;
       width: auto;
       height: auto;
-      max-width: 92vw;
+      max-width: 94vw;
       max-height: 88vh;
-      border-radius: 4px;
+      border-radius: 6px;
       background: #fff;
-      box-shadow: 0 12px 36px rgba(0,0,0,0.35);
+      box-shadow: 0 16px 46px rgba(0, 0, 0, 0.38);
     }
 
     .teaser-lightbox-close {
       position: absolute;
       top: 16px;
       right: 16px;
-      width: 40px;
-      height: 40px;
+      width: 42px;
+      height: 42px;
       border: 0;
-      border-radius: 20px;
-      color: #111;
-      background: rgba(255,255,255,0.92);
+      border-radius: 21px;
+      color: #1f261c;
+      background: rgba(255, 255, 255, 0.94);
+      font: inherit;
       font-size: 24px;
       line-height: 1;
       cursor: pointer;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+      box-shadow: 0 3px 14px rgba(0, 0, 0, 0.24);
     }
 
     .teaser-lightbox-close:focus-visible {
-      outline: 3px solid #0066cc;
+      outline: 3px solid rgba(255, 255, 255, 0.65);
       outline-offset: 3px;
     }
 
-    /* Mobile Tweaks */
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column-reverse; /* Photo on top on mobile */
-        text-align: center;
+    footer {
+      padding-top: 34px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 860px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 28px;
       }
-      .paper {
+
+      .profile-frame {
+        width: min(260px, 72vw);
+        justify-self: start;
+      }
+
+      .focus-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .publication {
+        grid-template-columns: 1fr;
+      }
+
+      .teaser {
+        max-width: 560px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .site-shell {
+        padding: 20px 16px 44px;
+      }
+
+      .site-nav {
+        align-items: flex-start;
         flex-direction: column;
+        padding-bottom: 24px;
       }
-      .paper-image {
-        flex: none;
-        width: min(300px, 100%);
-        margin: 0 auto;
-        max-width: 300px;
+
+      .nav-links {
+        justify-content: flex-start;
       }
-      .paper-video {
-        flex: none;
-        width: min(300px, 100%);
-        margin: 0 auto;
-        max-width: 300px;
+
+      .hero {
+        padding: 36px 0 32px;
       }
-      .teaser-lightbox {
-        padding: 16px;
+
+      .profile-frame {
+        width: min(220px, 80vw);
       }
-      .teaser-lightbox-media img,
-      .teaser-lightbox-media video {
-        max-width: 94vw;
-        max-height: 82vh;
+
+      .news-list li,
+      .year-list li {
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
+
+      .publication {
+        padding: 14px;
+        gap: 16px;
       }
     }
   </style>
 </head>
-
 <body>
+  <div class="site-shell">
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a class="site-mark" href="#">Jaesung Choe</a>
+      <div class="nav-links">
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#mentorship">Mentorship</a>
+        <a href="mailto:jchoe@nvidia.com">Contact</a>
+      </div>
+    </nav>
 
-  <div class="container">
-    
-    <header> <!-- Header -->
-      <div class="bio-text">
+    <header class="hero">
+      <div>
         <h1>Jaesung Choe</h1>
-        <p>
-          Hi, I am a research scientist at <a href="https://research.nvidia.com/labs/twn/" style="color: #76B900">NVIDIA Research Taiwan</a>. 
-          My main research interest is "3D + Action", including the Vision Language Navigation task.
+        <p class="hero-summary">
+          I am a research scientist at <a href="https://research.nvidia.com/labs/twn/">NVIDIA Research Taiwan</a>.
+          I have worked on computer vision for 3D scenes.
         </p>
-        <p>
-          <a href="mailto:jchoe@nvidia.com">Email</a> &nbsp;/&nbsp;
-          <a href="https://drive.google.com/file/d/1rFHwf0bPE34dMwDoAEDkbrDHB0GGXa2K/view?usp=sharing">CV</a> &nbsp;/&nbsp;
-          <a href="https://scholar.google.com/citations?user=dQ7NO0IAAAAJ&hl=en">Google Scholar</a> &nbsp;/&nbsp;
+        <div class="link-row" aria-label="Profile links">
+          <a href="mailto:jchoe@nvidia.com">Email</a>
+          <a href="https://drive.google.com/file/d/1rFHwf0bPE34dMwDoAEDkbrDHB0GGXa2K/view?usp=sharing">CV</a>
+          <a href="https://scholar.google.com/citations?user=dQ7NO0IAAAAJ&amp;hl=en">Google Scholar</a>
           <a href="https://www.linkedin.com/in/jaesung-choe-531611267/">LinkedIn</a>
-        </p>
+        </div>
       </div>
-      
-      <div class="profile-photo">
-        <img src="images/jaesungchoe-profile-3.jpeg" alt="Jaesung Choe Profile Picture">
-      </div>
+      <figure class="profile-frame">
+        <img src="images/jaesungchoe-profile-3.jpeg" alt="Portrait of Jaesung Choe">
+      </figure>
     </header>
 
-    <section> <!-- News -->
-      <h2>News</h2>
-      <ul class="news-list">
-        <li><strong>Jun 2026:</strong> One paper has been accepted to ECCV 2026.</li>
-        <li><strong>Mar 2026:</strong> One paper has been accepted to CVPR 2026.</li>
-      </ul>
-    </section>
-
-    <section> <!-- Research -->
-      <h2>Research</h2>
-      <p>
-        I'm interested in computer vision for 3D scene understanding. 
-        Representative papers are highlighted.
-      </p>
-
-      <article class="paper"> <!-- splatreasoner -->
-        <div class="paper-image">
-          <img src="images/splatreasoner_v3.png" alt="SplatReasoner Thumbnail">
-        </div>
-        <div class="paper-content">
-          <h3>
-            <a href="#">SplatReasoner: Enhancing Embodied Reasoning and Grounding by Novel View Synthesis</a>
-          </h3>
-          <p class="authors">
-            Kim Yu-Ji, Dahye Lee, Kim Jun-Seong, GeonU Kim, Nam Hyeon-Woo, Yongjin Kwon, Yu-Chiang Frank Wang, <strong>Jaesung Choe</strong>, Tae-Hyun Oh.  </br>
-          </p>
-          <p class="venue"><em>ECCV 2026</em></p>
-          <p class="description">
-            It shows that novel-view synthesis improves the reasoning capabilities of embodied agents. </br>
-            <em>+ Academic collaboration with KAIST and POSTECH.</em>
-          </p>
-          <p class="links">
-            [<a href="https://arxiv.org/abs/2601.13132">Paper</a>]
-          </p>
-        </div>
-      </article>
-
-      <article class="paper highlight"> <!-- openvoxel -->
-        <div class="paper-image">
-           <img src="images/openvoxel.png" alt="OpenVoxel Thumbnail">
-        </div>
-        <div class="paper-content">
-          <h3>
-            <a href="https://peterjohnsonhuang.github.io/openvoxel-pages/">OpenVoxel: Training-Free Grouping and Captioning Voxels for Open-Vocabulary 3D Scene Understanding</a>
-          </h3>
-          <p class="authors">
-            Sheng-Yu Huang, <strong>Jaesung Choe</strong>, Yu-Chiang Frank Wang, Cheng Sun
-          </p>
-          <p class="venue"><em>CVPR 2026</em></p>
-          <p class="description">
-            We attach natural language descriptions to 3D sparse voxels — enabling any VLM or LLM to directly reason over 3D scenes. </br>
-            <em>+ NVIDIA research paper.</em>
-          </p>
-          <p class="links">
-            [<a href="https://peterjohnsonhuang.github.io/openvoxel-pages">Project</a>]
-            [<a href="https://arxiv.org/pdf/2601.09575">Paper</a>]
-          </p>
-        </div>
-      </article>
-
-      <article class="paper highlight"> <!-- dvsm -->
-        <div class="paper-image">
-          <img src="images/dvsm_v1.png" alt="DVSM Thumbnail">
-        </div>
-        <div class="paper-content">
-          <h3>
-            <a href="https://arxiv.org/abs/2605.29891">DVSM: Decoder-only View Synthesis Model Done Right</a>
-          </h3>
-          <p class="authors">
-            Cheng Sun, <strong>Jaesung Choe</strong>, Min-Hung Chen, Ryo Hachiuma, Yu-Chiang Frank Wang
-          </p>
-          <p class="venue"><em>arXiv 2026</em></p>
-          <p class="description">
-            A decoder-only view synthesis model that represents scenes as a KV-cache and shares weights between reconstruction and rendering. </br>
-            <em>+ NVIDIA research paper.</em>
-          </p>
-          <p class="links">
-            [<a href="https://arxiv.org/abs/2605.29891">Paper</a>]
-          </p>
-        </div>
-      </article>
-      
-      <article class="paper highlight"> <!-- mv_sam -->
-        <div class="paper-image">
-           <img src="images/mv_sam_v2.png" alt="MV-SAM Thumbnail">
-        </div>
-        <div class="paper-content">
-          <h3>
-            <a href="mv_sam/index.html">MV-SAM: Multi-view Promptable Segmentation using Pointmap Guidance</a>
-          </h3>
-          <p class="authors">
-            Yoonwoo Jeong, Cheng Sun, Yu-Chiang Frank Wang, Minsu Cho, <strong>Jaesung Choe</strong>
-          </p>
-          <p class="venue"><em>arXiv 2026</em></p>
-          <p class="description">
-            Multi-view promptable segmentation that achieves 3D consistency using pointmaps. </br>
-            <em>+ NVIDIA research paper.</em>
-          </p>
-          <p class="links">
-            [<a href="mv_sam/index.html">Project</a>]
-            [<a href="https://arxiv.org/abs/2601.17866">Paper</a>]
-          </p>
-        </div>
-      </article>
-
-      <article class="paper highlight"> <!-- qrender -->
-        <div class="paper-image">
-           <img src="images/qrender_v2.png" alt="Quantile Render Thumbnail">
-        </div>
-        <div class="paper-content">
-          <h3>
-            <a href="qrender/index.html">Quantile Rendering: Efficiently Embedding High-dimensional Feature on 3D Gaussian Splatting</a>
-          </h3>
-          <p class="authors">
-            Yoonwoo Jeong, Cheng Sun, Yu-Chiang Frank Wang, Minsu Cho, <strong>Jaesung Choe</strong>
-          </p>
-          <p class="venue"><em>arXiv 2025</em></p>
-          <p class="description">
-            An efficient rendering algorithm for 3D Gaussians that involve high-dimensional feature vectors. Our Q-render achieves ∼43.7× speed gains compared to recent studies when rendering 512-D feature maps. </br>
-            <em>+ NVIDIA research paper.</em>
-          </p>
-          <p class="links">
-            [<a href="qrender/index.html">Project</a>]
-            [<a href="https://arxiv.org/abs/2512.20927">Paper</a>]
-          </p>
-        </div>
-      </article>
-
-      <article class="paper"> <!-- svrecon -->
-        <div class="paper-image">
-          <img src="images/svrecon.png" alt="SVRecon Thumbnail">
-        </div>
-        <div class="paper-content">
-          <h3>
-            <a href="svrecon/index.html">SVRecon: Sparse Voxel Rasterization for Surface Reconstruction</a>
-          </h3>
-          <p class="authors">
-            Seunghun Oh, <strong>Jaesung Choe</strong>, Dongjae Lee, Daeun Lee, Seunghoon Jeong, Yu-Chiang Frank Wang, Jaesik Park.
-          </p>
-          <p class="venue"><em>arXiv 2025</em></p>
-          <p class="description">
-            We strengthen voxel-wise associations among parent-child and sibling voxel groups,
-            resulting in smoother surface reconstruction. </br>
-            <em>+ Academic collaboration with Seoul National University.</em>
-          </p>
-          <p class="links">
-            [<a href="svrecon/index.html">Project</a>]
-            [<a href="https://arxiv.org/abs/2511.17364">Paper</a>]
-            [<a href="https://github.com/alvin0808/svraster">Code</a>]
-          </p>
-        </div>
-      </article>
-
-      <article class="paper"> <!-- dr_splat -->
-        <div class="paper-image">
-           <img src="images/dr_splat.png" alt="Dr. Splat Thumbnail">
-        </div>
-        <div class="paper-content">
-          <h3>
-            <a href="#">Dr. Splat: Directly Referring 3D Gaussian Splatting via Direct Language Embedding Registration</a>
-          </h3>
-          <p class="authors">
-            Kim Jun-Seong, GeonU Kim, Kim Yu-Ji, Yu-Chiang Frank Wang, <strong>Jaesung Choe*</strong>, Tae-Hyun Oh*
-          </p>
-          <p class="venue"><em>CVPR 2025 (highlight Top 3.7%)</em></p>
-          <p class="description">
-            Distill language knowledge into 3D Gaussian Splatting. </br>
-            <em>+ Winner of Qualcomm Innovation Fellowship Korea</em> </br>
-            <em>+ Academic collaboration with POSTECH.</em>
-          </p>
-          <p class="links">
-            [<a href="https://drsplat.github.io/">Project</a>]
-            [<a href="https://arxiv.org/pdf/2502.16652">Paper</a>]
-            [<a href="https://github.com/kaist-ami/Dr-Splat">Code</a>]
-          </p>
-        </div>
-      </article>
-
-      <article class="paper highlight"> <!-- mosaic3d -->
-        <div class="paper-image">
-           <img src="images/mosaic3d.jpg" alt="Mosaic3D Thumbnail">
-        </div>
-        <div class="paper-content">
-          <h3>
-            <a href="#">Mosaic3D: Foundation Dataset and Model for Open-Vocabulary 3D Segmentation</a>
-          </h3>
-          <p class="authors">
-            Junha Lee*, Chunghyun Park*, <strong>Jaesung Choe</strong>, Yu-Chiang Frank Wang, Jan Kautz, Minsu Cho, Christopher Choy
-          </p>
-          <p class="venue"><em>CVPR 2025</em></p>
-          <p class="description">
-            Introduce a data generation pipeline that leverages 2D foundation models to synthesize 3D mask-text paired data. </br>
-            <em>+ NVIDIA research paper.</em>
-          </p>
-          <p class="links">
-            [<a href="https://nvlabs.github.io/Mosaic3D/">Project</a>]
-            [<a href="https://arxiv.org/pdf/2502.02548">Paper</a>]
-            [<a href="https://huggingface.co/datasets/junhalee/Mosaic3D">Data</a>]
-            [<a href="https://github.com/NVlabs/Mosaic3D">Code</a>]
-          </p>
-        </div>
-      </article>
-      
-      <article class="paper highlight"> <!-- SVRaster -->
-        <div class="paper-image">
-           <img src="images/svraster.png" alt="SVRaster Thumbnail">
-        </div>
-        <div class="paper-content">
-          <h3>
-            <a href="#">Sparse Voxels Rasterization: Real-time High-fidelity Radiance Field Rendering</a>
-          </h3>
-          <p class="authors">
-            Cheng Sun, <strong>Jaesung Choe</strong>, Charles Loop, Wei-Chiu Ma, Yu-Chiang Frank Wang
-          </p>
-          <p class="venue"><em>CVPR 2025</em></p>
-          <p class="description">
-            Extend the rasterization technique into the sparse voxel representation for the image rendering task. </br>
-            <em>+ NVIDIA research paper.</em>
-          </p>
-          <p class="links">
-            [<a href="https://svraster.github.io/">Project</a>]
-            [<a href="https://arxiv.org/abs/2412.04459">Paper</a>]
-            [<a href="https://github.com/NVlabs/svraster">Code</a>]
-          </p>
-        </div>
-      </article>
-
-      <article class="paper highlight"> <!-- 4DRegSDF -->
-        <div class="paper-video">
-            <video autoplay loop muted playsinline>
-              <source src="images/regsdf.mp4" type="video/mp4">
-              <img src="images/regsdf.png" alt="RegSDF Fallback" style="width:100%; border-radius:4px;">
-            </video>
-          </div>
-        <div class="paper-content">
-          <h3>
-            <a href="#">Spacetime Surface Regularization for Neural Dynamic Scene Reconstruction</a>
-          </h3>
-          <p class="authors">
-            <strong>Jaesung Choe</strong>, Christopher Choy, Jaesik Park, In So Kweon, Anima Anandkumar
-          </p>
-          <p class="venue"><em>ICCV 2023</em></p>
-          <p class="description">
-            Apply spacetime surface regularization technique for 4D surface reconstruction and dynamic scene rendering. </br>
-            <em>+ NVIDIA research paper.</em>
-          </p>
-          <p class="links">
-            [<a href="https://openaccess.thecvf.com/content/ICCV2023/papers/Choe_Spacetime_Surface_Regularization_for_Neural_Dynamic_Scene_Reconstruction_ICCV_2023_paper.pdf">Paper</a>]
-          </p>
-        </div>
-      </article>
-
-      <article class="paper"> <!-- pointmixer -->
-        <div class="paper-image">
-           <img src="images/pointmixer.jpeg" alt="PointMixer Thumbnail">
-        </div>
-        <div class="paper-content">
-          <h3>
-            <a href="#">PointMixer: MLP-Mixer for Point Cloud Understanding</a>
-          </h3>
-          <p class="authors">
-            <strong>Jaesung Choe*</strong>, Chunghyun Park*, Francois Rameau, Jaesik Park, In So Kweon
-          </p>
-          <p class="venue"><em>ECCV 2022</em></p>
-          <p class="description">
-            Design a new MLP-only architecture for 3D points.
-          </p>
-          <p class="links">
-            [<a href="https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136870611.pdf">Paper</a>]
-            [<a href="https://github.com/LifeBeyondExpectations/ECCV22-PointMixer">Code</a>]
-          </p>
-        </div>
-      </article>
-
-      <article class="paper"> <!-- pointrecon -->
-        <div class="paper-image">
-           <img src="images/pointrecon.png" alt="PointRecon Thumbnail">
-        </div>
-        <div class="paper-content">
-          <h3>
-            <a href="#">Deep Point Cloud Reconstruction</a>
-          </h3>
-          <p class="authors">
-            <strong>Jaesung Choe*</strong>, ByeongIn Joung*, Francois Rameau, Jaesik Park, In So Kweon
-          </p>
-          <p class="venue"><em>ICLR 2022</em></p>
-          <p class="description">
-            Perform the point cloud upsampling and denoising tasks simultaneously. Demonstrate good generalization performance.
-          </p>
-          <p class="links">
-            [<a href="https://openreview.net/pdf?id=mKDtUtxIGJ">Paper</a>]
-          </p>
-        </div>
-      </article>
-
-      <article class="paper"> <!-- volumefusion -->
-        <div class="paper-image">
-           <img src="images/volumefusion.png" alt="VolumeFusion Thumbnail">
-        </div>
-        <div class="paper-content">
-          <h3>
-            <a href="#">VolumeFusion: Deep Depth Fusion for 3D Scene Reconstruction</a>
-          </h3>
-          <p class="authors">
-            <strong>Jaesung Choe</strong>, Sunghoon Im, Francois Rameau, Minjun Kang, In So Kweon
-          </p>
-          <p class="venue"><em>ICCV 2021</em></p>
-          <p class="description">
-            Propose deep learning based depth fusion algorithm for indoor scene reconstruction.
-          </p>
-          <p class="links">
-            [<a href="https://openaccess.thecvf.com/content/ICCV2021/html/Choe_VolumeFusion_Deep_Depth_Fusion_for_3D_Scene_Reconstruction_ICCV_2021_paper.html">Paper</a>]
-          </p>
-        </div>
-      </article>
-
-      <article class="paper"> <!-- stereolidar -->
-        <div class="paper-image">
-           <img src="images/stereolidar.jpg" alt="Stereolidar Thumbnail">
-        </div>
-        <div class="paper-content">
-          <h3>
-            <a href="#">Volumetric Propagation Network: Stereo-LiDAR Fusion for Long-Range Depth Estimation</a>
-          </h3>
-          <p class="authors">
-            <strong>Jaesung Choe</strong>, Kyungdon Joo, Tooba Imtiaz, In So Kweon
-          </p>
-          <p class="venue"><em>RA-L 2021</em></p>
-          <p class="description">
-            Estimation dense depth maps by fusing LiDAR points and stereo images.
-          </p>
-          <p class="links">
-            [<a href="https://ieeexplore.ieee.org/document/9385917">Paper (RA-L)</a>]
-            [<a href="https://arxiv.org/abs/2103.12964">Paper (ICRA)</a>]
-            [<a href="https://youtu.be/2A5NwNJwb18">Video</a>]
-          </p>
-        </div>
-      </article>
-
-    </section>
-
-    <section> <!-- Research Intern Mentorship -->
-        <h2>Mentorship</h2>
-        I have mentored the following research interns.
-        <ul class="year-list">
+    <main>
+      <section id="news" aria-labelledby="news-title">
+        <h2 id="news-title">News</h2>
+        <ul class="news-list">
           <li>
-            <span class="year-col">2026</span>
-            <span class="text-col"><a href="https://ug-kim.github.io/">Yu-Ji Kim</a>, <a href="https://www.postech.ac.kr/eng/index.do">POSTECH</a></span>
+            <span class="date">Jun 2026</span>
+            <span>One paper has been accepted to ECCV 2026.</span>
           </li>
           <li>
-            <span class="year-col">2024</span>
-            <span class="text-col"><a href="https://jeongyw12382.github.io/">Yoonwoo Jeong</a>, <a href="https://www.postech.ac.kr/eng/index.do">POSTECH</a> → with me → Meta intern</span>
-          </li>
-          <li>
-            <span class="year-col">2023</span>
-            <span class="text-col"><a href="https://chrockey.github.io/">Chunghyun Park</a>, <a href="https://www.postech.ac.kr/eng/index.do">POSTECH</a></span>
+            <span class="date">Mar 2026</span>
+            <span>One paper has been accepted to CVPR 2026.</span>
           </li>
         </ul>
-    </section>
-  
-    <section> <!-- Academic collaboration -->
-    <h2>Academic collaboration</h2>
-    For research collaboration, I have collaborated with the following researchers.
-    <ul class="year-list">
-        <li>
-        <span class="year-col">2026</span>
-        <span class="text-col">Open (feel free to reach out if interested!)</span>
-        </li>
-        <li>
-        <span class="year-col">2025</span>
-        <span class="text-col"><a href="https://alvin0808.github.io/">Seunghun Oh</a>, <a href="https://en.snu.ac.kr/">Seoul National University</a> → with me → <a href="https://www.ucla.edu/">UCLA</a></span>
-        </li>
-        <li>
-        <span class="year-col">2025</span>
-        <span class="text-col"><a href="https://ug-kim.github.io/">Yu-ji Kim</a>, <a href="https://www.postech.ac.kr/eng/index.do">POSTECH</a> → with me → NVIDIA intern</span>
-        </li>
-        <li>
-        <span class="year-col">2024</span>
-        <span class="text-col"><a href="https://kim-junseong.github.io/">Junseong Kim</a>, <a href="https://www.postech.ac.kr/eng/index.do">POSTECH</a> → with me → Huawei intern</span>
-        </li>
-    </ul>
-    </section>
+      </section>
 
-    <!-- <footer>
-      <p style="text-align:right; font-size:small; color:#999;">
-        Template inspired by <a href="https://github.com/jonbarron/jonbarron.github.io">Jon Barron</a>.
-      </p>
-    </footer>-->
- 
+      <section id="research" aria-labelledby="research-title">
+        <h2 id="research-title">Research</h2>
+        <p class="section-lead">
+          My research extends 3D scene understanding beyond reconstruction and rendering toward embodied reasoning, exploration, and vision-language action.
+        </p>
+        <div class="focus-grid">
+          <article class="focus-item">
+            <h3>3D Scene Understanding</h3>
+            <p>Open-vocabulary 3D representations, multi-view reasoning, and scene-level grounding.</p>
+          </article>
+          <article class="focus-item">
+            <h3>Reconstruction and Rendering</h3>
+            <p>Voxel, Gaussian, and neural scene representations for efficient high-fidelity rendering.</p>
+          </article>
+          <article class="focus-item">
+            <h3>Embodied Agents in 3D Scene</h3>
+            <p>Vision-language navigation and embodied reasoning that connect perception to decisions.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="publications" aria-labelledby="publications-title">
+        <h2 id="publications-title">Selected Publications</h2>
+        <p class="section-lead">Representative publications are shown first, followed by earlier work in 3D vision.</p>
+
+        <div class="publication-list">
+          <article class="publication">
+            <a class="teaser" href="https://arxiv.org/abs/2601.13132" aria-label="SplatReasoner paper">
+              <img src="images/splatreasoner_v3.png" alt="SplatReasoner teaser">
+            </a>
+            <div>
+              <h3><a href="https://arxiv.org/abs/2601.13132">SplatReasoner: Enhancing Embodied Reasoning and Grounding by Novel View Synthesis</a></h3>
+              <p class="publication-meta">ECCV 2026</p>
+              <p class="authors">Kim Yu-Ji, Dahye Lee, Kim Jun-Seong, GeonU Kim, Nam Hyeon-Woo, Yongjin Kwon, Yu-Chiang Frank Wang, <strong>Jaesung Choe</strong>, Tae-Hyun Oh.</p>
+              <p class="description">Novel-view synthesis improves the reasoning capabilities of embodied agents.</p>
+              <p class="notes">Academic collaboration with KAIST and POSTECH.</p>
+              <p class="paper-links"><a href="https://arxiv.org/abs/2601.13132">Paper</a></p>
+            </div>
+          </article>
+
+          <article class="publication featured">
+            <a class="teaser" href="https://peterjohnsonhuang.github.io/openvoxel-pages/" aria-label="OpenVoxel project">
+              <img src="images/openvoxel.png" alt="OpenVoxel teaser">
+            </a>
+            <div>
+              <h3><a href="https://peterjohnsonhuang.github.io/openvoxel-pages/">OpenVoxel: Training-Free Grouping and Captioning Voxels for Open-Vocabulary 3D Scene Understanding</a></h3>
+              <p class="publication-meta">CVPR 2026</p>
+              <p class="authors">Sheng-Yu Huang, <strong>Jaesung Choe</strong>, Yu-Chiang Frank Wang, Cheng Sun</p>
+              <p class="description">Any VLMs or LLMs can now reason over 3D scenes.</p>
+              <p class="notes">NVIDIA research paper.</p>
+              <p class="paper-links"><a href="https://peterjohnsonhuang.github.io/openvoxel-pages">Project</a><a href="https://arxiv.org/pdf/2601.09575">Paper</a></p>
+            </div>
+          </article>
+
+          <article class="publication featured">
+            <a class="teaser" href="https://arxiv.org/abs/2605.29891" aria-label="DVSM paper">
+              <img src="images/dvsm_v1.png" alt="DVSM teaser">
+            </a>
+            <div>
+              <h3><a href="https://arxiv.org/abs/2605.29891">DVSM: Decoder-only View Synthesis Model Done Right</a></h3>
+              <p class="publication-meta">arXiv 2026</p>
+              <p class="authors">Cheng Sun, <strong>Jaesung Choe</strong>, Min-Hung Chen, Ryo Hachiuma, Yu-Chiang Frank Wang</p>
+              <p class="description">A decoder-only view synthesis model that represents scenes as a KV-cache and shares weights between reconstruction and rendering.</p>
+              <p class="notes">NVIDIA research paper.</p>
+              <p class="paper-links"><a href="https://arxiv.org/abs/2605.29891">Paper</a></p>
+            </div>
+          </article>
+
+          <article class="publication featured">
+            <a class="teaser" href="mv_sam/index.html" aria-label="MV-SAM project">
+              <img src="images/mv_sam_v2.png" alt="MV-SAM teaser">
+            </a>
+            <div>
+              <h3><a href="mv_sam/index.html">MV-SAM: Multi-view Promptable Segmentation using Pointmap Guidance</a></h3>
+              <p class="publication-meta">arXiv 2026</p>
+              <p class="authors">Yoonwoo Jeong, Cheng Sun, Yu-Chiang Frank Wang, Minsu Cho, <strong>Jaesung Choe</strong></p>
+              <p class="description">Multi-view promptable segmentation that achieves 3D consistency using pointmaps.</p>
+              <p class="notes">NVIDIA research paper.</p>
+              <p class="paper-links"><a href="mv_sam/index.html">Project</a><a href="https://arxiv.org/abs/2601.17866">Paper</a></p>
+            </div>
+          </article>
+
+          <article class="publication featured">
+            <a class="teaser" href="qrender/index.html" aria-label="Quantile Rendering project">
+              <img src="images/qrender_v2.png" alt="Quantile Rendering teaser">
+            </a>
+            <div>
+              <h3><a href="qrender/index.html">Quantile Rendering: Efficiently Embedding High-dimensional Feature on 3D Gaussian Splatting</a></h3>
+              <p class="publication-meta">arXiv 2025</p>
+              <p class="authors">Yoonwoo Jeong, Cheng Sun, Yu-Chiang Frank Wang, Minsu Cho, <strong>Jaesung Choe</strong></p>
+              <p class="description">Efficient feature rendering for 3D Gaussians, with large speed gains when rendering high-dimensional feature maps.</p>
+              <p class="notes">NVIDIA research paper.</p>
+              <p class="paper-links"><a href="qrender/index.html">Project</a><a href="https://arxiv.org/abs/2512.20927">Paper</a></p>
+            </div>
+          </article>
+
+          <article class="publication">
+            <a class="teaser" href="svrecon/index.html" aria-label="SVRecon project">
+              <img src="images/svrecon.png" alt="SVRecon teaser">
+            </a>
+            <div>
+              <h3><a href="svrecon/index.html">SVRecon: Sparse Voxel Rasterization for Surface Reconstruction</a></h3>
+              <p class="publication-meta">arXiv 2025</p>
+              <p class="authors">Seunghun Oh, <strong>Jaesung Choe</strong>, Dongjae Lee, Daeun Lee, Seunghoon Jeong, Yu-Chiang Frank Wang, Jaesik Park.</p>
+              <p class="description">Voxel-wise associations among parent-child and sibling voxel groups produce smoother surface reconstruction.</p>
+              <p class="notes">Academic collaboration with Seoul National University.</p>
+              <p class="paper-links"><a href="svrecon/index.html">Project</a><a href="https://arxiv.org/abs/2511.17364">Paper</a><a href="https://github.com/alvin0808/svraster">Code</a></p>
+            </div>
+          </article>
+
+          <article class="publication">
+            <a class="teaser" href="https://drsplat.github.io/" aria-label="Dr. Splat project">
+              <img src="images/dr_splat.png" alt="Dr. Splat teaser">
+            </a>
+            <div>
+              <h3><a href="https://drsplat.github.io/">Dr. Splat: Directly Referring 3D Gaussian Splatting via Direct Language Embedding Registration</a></h3>
+              <p class="publication-meta">CVPR 2025 (highlight Top 3.7%)</p>
+              <p class="authors">Kim Jun-Seong, GeonU Kim, Kim Yu-Ji, Yu-Chiang Frank Wang, <strong>Jaesung Choe*</strong>, Tae-Hyun Oh*</p>
+              <p class="description">Language knowledge is distilled into 3D Gaussian Splatting for direct referring.</p>
+              <p class="notes">Winner of Qualcomm Innovation Fellowship Korea. Academic collaboration with POSTECH.</p>
+              <p class="paper-links"><a href="https://drsplat.github.io/">Project</a><a href="https://arxiv.org/pdf/2502.16652">Paper</a><a href="https://github.com/kaist-ami/Dr-Splat">Code</a></p>
+            </div>
+          </article>
+
+          <article class="publication featured">
+            <a class="teaser" href="https://nvlabs.github.io/Mosaic3D/" aria-label="Mosaic3D project">
+              <img src="images/mosaic3d.jpg" alt="Mosaic3D teaser">
+            </a>
+            <div>
+              <h3><a href="https://nvlabs.github.io/Mosaic3D/">Mosaic3D: Foundation Dataset and Model for Open-Vocabulary 3D Segmentation</a></h3>
+              <p class="publication-meta">CVPR 2025</p>
+              <p class="authors">Junha Lee*, Chunghyun Park*, <strong>Jaesung Choe</strong>, Yu-Chiang Frank Wang, Jan Kautz, Minsu Cho, Christopher Choy</p>
+              <p class="description">A data generation pipeline uses 2D foundation models to synthesize 3D mask-text paired data.</p>
+              <p class="notes">NVIDIA research paper.</p>
+              <p class="paper-links"><a href="https://nvlabs.github.io/Mosaic3D/">Project</a><a href="https://arxiv.org/pdf/2502.02548">Paper</a><a href="https://huggingface.co/datasets/junhalee/Mosaic3D">Data</a><a href="https://github.com/NVlabs/Mosaic3D">Code</a></p>
+            </div>
+          </article>
+
+          <article class="publication featured">
+            <a class="teaser" href="https://svraster.github.io/" aria-label="SVRaster project">
+              <img src="images/svraster.png" alt="SVRaster teaser">
+            </a>
+            <div>
+              <h3><a href="https://svraster.github.io/">Sparse Voxels Rasterization: Real-time High-fidelity Radiance Field Rendering</a></h3>
+              <p class="publication-meta">CVPR 2025</p>
+              <p class="authors">Cheng Sun, <strong>Jaesung Choe</strong>, Charles Loop, Wei-Chiu Ma, Yu-Chiang Frank Wang</p>
+              <p class="description">Rasterization is extended into sparse voxel representations for real-time image rendering.</p>
+              <p class="notes">NVIDIA research paper.</p>
+              <p class="paper-links"><a href="https://svraster.github.io/">Project</a><a href="https://arxiv.org/abs/2412.04459">Paper</a><a href="https://github.com/NVlabs/svraster">Code</a></p>
+            </div>
+          </article>
+
+          <article class="publication featured">
+            <div class="teaser">
+              <video autoplay loop muted playsinline aria-label="4DRegSDF teaser video">
+                <source src="images/regsdf.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div>
+              <h3><a href="https://openaccess.thecvf.com/content/ICCV2023/papers/Choe_Spacetime_Surface_Regularization_for_Neural_Dynamic_Scene_Reconstruction_ICCV_2023_paper.pdf">Spacetime Surface Regularization for Neural Dynamic Scene Reconstruction</a></h3>
+              <p class="publication-meta">ICCV 2023</p>
+              <p class="authors"><strong>Jaesung Choe</strong>, Christopher Choy, Jaesik Park, In So Kweon, Anima Anandkumar</p>
+              <p class="description">Spacetime surface regularization for 4D surface reconstruction and dynamic scene rendering.</p>
+              <p class="notes">NVIDIA research paper.</p>
+              <p class="paper-links"><a href="https://openaccess.thecvf.com/content/ICCV2023/papers/Choe_Spacetime_Surface_Regularization_for_Neural_Dynamic_Scene_Reconstruction_ICCV_2023_paper.pdf">Paper</a></p>
+            </div>
+          </article>
+
+          <div class="student-papers-toggle">
+            <button class="reveal-button" type="button" id="studentPapersToggle" aria-expanded="false" aria-controls="studentPapers">
+              Before joining NVIDIA
+            </button>
+          </div>
+
+          <div class="student-papers" id="studentPapers" hidden>
+            <article class="publication">
+              <a class="teaser" href="https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136870611.pdf" aria-label="PointMixer paper">
+                <img src="images/pointmixer.jpeg" alt="PointMixer teaser">
+              </a>
+              <div>
+                <h3><a href="https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136870611.pdf">PointMixer: MLP-Mixer for Point Cloud Understanding</a></h3>
+                <p class="publication-meta">ECCV 2022</p>
+                <p class="authors"><strong>Jaesung Choe*</strong>, Chunghyun Park*, Francois Rameau, Jaesik Park, In So Kweon</p>
+                <p class="description">A new MLP-only architecture for 3D point cloud understanding.</p>
+                <p class="paper-links"><a href="https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136870611.pdf">Paper</a><a href="https://github.com/LifeBeyondExpectations/ECCV22-PointMixer">Code</a></p>
+              </div>
+            </article>
+
+            <article class="publication">
+              <a class="teaser" href="https://openreview.net/pdf?id=mKDtUtxIGJ" aria-label="Deep Point Cloud Reconstruction paper">
+                <img src="images/pointrecon.png" alt="Deep Point Cloud Reconstruction teaser">
+              </a>
+              <div>
+                <h3><a href="https://openreview.net/pdf?id=mKDtUtxIGJ">Deep Point Cloud Reconstruction</a></h3>
+                <p class="publication-meta">ICLR 2022</p>
+                <p class="authors"><strong>Jaesung Choe*</strong>, ByeongIn Joung*, Francois Rameau, Jaesik Park, In So Kweon</p>
+                <p class="description">Point cloud upsampling and denoising are performed jointly with strong generalization.</p>
+                <p class="paper-links"><a href="https://openreview.net/pdf?id=mKDtUtxIGJ">Paper</a></p>
+              </div>
+            </article>
+
+            <article class="publication">
+              <a class="teaser" href="https://openaccess.thecvf.com/content/ICCV2021/html/Choe_VolumeFusion_Deep_Depth_Fusion_for_3D_Scene_Reconstruction_ICCV_2021_paper.html" aria-label="VolumeFusion paper">
+                <img src="images/volumefusion.png" alt="VolumeFusion teaser">
+              </a>
+              <div>
+                <h3><a href="https://openaccess.thecvf.com/content/ICCV2021/html/Choe_VolumeFusion_Deep_Depth_Fusion_for_3D_Scene_Reconstruction_ICCV_2021_paper.html">VolumeFusion: Deep Depth Fusion for 3D Scene Reconstruction</a></h3>
+                <p class="publication-meta">ICCV 2021</p>
+                <p class="authors"><strong>Jaesung Choe</strong>, Sunghoon Im, Francois Rameau, Minjun Kang, In So Kweon</p>
+                <p class="description">A deep learning based depth fusion algorithm for indoor scene reconstruction.</p>
+                <p class="paper-links"><a href="https://openaccess.thecvf.com/content/ICCV2021/html/Choe_VolumeFusion_Deep_Depth_Fusion_for_3D_Scene_Reconstruction_ICCV_2021_paper.html">Paper</a></p>
+              </div>
+            </article>
+
+            <article class="publication">
+              <a class="teaser" href="https://ieeexplore.ieee.org/document/9385917" aria-label="Volumetric Propagation Network paper">
+                <img src="images/stereolidar.jpg" alt="Stereo-LiDAR Fusion teaser">
+              </a>
+              <div>
+                <h3><a href="https://ieeexplore.ieee.org/document/9385917">Volumetric Propagation Network: Stereo-LiDAR Fusion for Long-Range Depth Estimation</a></h3>
+                <p class="publication-meta">RA-L 2021</p>
+                <p class="authors"><strong>Jaesung Choe</strong>, Kyungdon Joo, Tooba Imtiaz, In So Kweon</p>
+                <p class="description">Dense depth estimation by fusing LiDAR points and stereo images.</p>
+                <p class="paper-links"><a href="https://ieeexplore.ieee.org/document/9385917">Paper (RA-L)</a><a href="https://arxiv.org/abs/2103.12964">Paper (ICRA)</a><a href="https://youtu.be/2A5NwNJwb18">Video</a></p>
+              </div>
+            </article>
+
+            <article class="publication">
+              <a class="teaser text-teaser" href="https://arxiv.org/abs/2103.12498" aria-label="Stereo Object Matching Network paper">
+                Stereo Object Matching Network
+              </a>
+              <div>
+                <h3><a href="https://arxiv.org/abs/2103.12498">Stereo Object Matching Network</a></h3>
+                <p class="publication-meta">ICRA 2021</p>
+                <p class="authors"><strong>Jaesung Choe</strong>, Kyungdon Joo, Francois Rameau, In So Kweon</p>
+                <p class="description">Stereo matching is guided by object-level 3D context inside the cost volume.</p>
+                <p class="paper-links"><a href="https://arxiv.org/abs/2103.12498">Paper</a></p>
+              </div>
+            </article>
+
+            <article class="publication">
+              <a class="teaser text-teaser" href="https://www.roboticsproceedings.org/rss15/p16.html" aria-label="Segment2Regress paper">
+                Segment2Regress
+              </a>
+              <div>
+                <h3><a href="https://www.roboticsproceedings.org/rss15/p16.html">Segment2Regress: Monocular 3D Vehicle Localization in Two Stages</a></h3>
+                <p class="publication-meta">RSS 2019</p>
+                <p class="authors"><strong>Jaesung Choe</strong>, Kyungdon Joo, Francois Rameau, Gyu Min Shim, In So Kweon</p>
+                <p class="description">Monocular 3D vehicle localization is decomposed into road-plane segment prediction and 3D regression.</p>
+                <p class="paper-links"><a href="https://www.roboticsproceedings.org/rss15/p16.html">Paper</a></p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="mentorship" aria-labelledby="mentorship-title">
+        <h2 id="mentorship-title">Mentorship and Collaboration</h2>
+        <div class="mentorship-stack">
+          <div>
+            <h3>Research Intern Mentorship</h3>
+            <p class="column-note">I have mentored the following research interns.</p>
+            <ul class="year-list">
+              <li><span class="year">2026</span><span><a href="https://ug-kim.github.io/">Yu-Ji Kim</a>, POSTECH -> with me</span></li>
+              <li><span class="year">2024</span><span><a href="https://jeongyw12382.github.io/">Yoonwoo Jeong</a>, POSTECH -> with me -> Meta intern</span></li>
+              <li><span class="year">2023</span><span><a href="https://chrockey.github.io/">Chunghyun Park</a>, POSTECH -> with me</span></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Academic Collaboration</h3>
+            <p class="column-note">For research collaboration, I have collaborated with the following researchers.</p>
+            <ul class="year-list">
+              <li><span class="year">2026</span><span>Open (feel free to reach out if interested!)</span></li>
+              <li><span class="year">2025</span><span><a href="https://alvin0808.github.io/">Seunghun Oh</a>, Seoul National University -> with me -> UCLA</span></li>
+              <li><span class="year">2025</span><span><a href="https://ug-kim.github.io/">Yu-Ji Kim</a>, POSTECH -> with me -> NVIDIA intern</span></li>
+              <li><span class="year">2024</span><span><a href="https://kim-junseong.github.io/">Junseong Kim</a>, POSTECH -> with me -> Huawei intern</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Last updated for a personal research homepage. Built as a static page for fast reading on desktop and mobile.</p>
+    </footer>
   </div>
 
   <div id="teaserLightbox" class="teaser-lightbox" role="dialog" aria-modal="true" aria-label="Paper teaser preview" hidden>
@@ -679,45 +802,61 @@
   </div>
 
   <script>
-    const lightbox = document.getElementById('teaserLightbox');
-    const lightboxMedia = lightbox.querySelector('.teaser-lightbox-media');
-    const lightboxClose = lightbox.querySelector('.teaser-lightbox-close');
+    const studentPapersToggle = document.getElementById('studentPapersToggle');
+    const studentPapers = document.getElementById('studentPapers');
+    const teaserLightbox = document.getElementById('teaserLightbox');
+    const teaserLightboxMedia = teaserLightbox.querySelector('.teaser-lightbox-media');
+    const teaserLightboxClose = teaserLightbox.querySelector('.teaser-lightbox-close');
     let activeTeaser = null;
 
-    function openTeaserLightbox(teaser) {
-      activeTeaser = teaser;
-      lightboxMedia.replaceChildren();
+    studentPapersToggle.addEventListener('click', () => {
+      const isExpanded = studentPapersToggle.getAttribute('aria-expanded') === 'true';
+      studentPapers.hidden = isExpanded;
+      studentPapersToggle.setAttribute('aria-expanded', String(!isExpanded));
+      studentPapersToggle.textContent = isExpanded ? 'Before joining NVIDIA' : 'Hide Before joining NVIDIA';
+    });
 
-      if (teaser.tagName === 'VIDEO') {
+    function getTeaserMedia(teaser) {
+      return teaser.querySelector('img, video');
+    }
+
+    function openTeaserLightbox(teaser) {
+      const media = getTeaserMedia(teaser);
+      if (!media) return;
+
+      activeTeaser = teaser;
+      teaserLightboxMedia.replaceChildren();
+
+      if (media.tagName === 'VIDEO') {
         const preview = document.createElement('video');
-        Array.from(teaser.querySelectorAll('source')).forEach((source) => {
+        Array.from(media.querySelectorAll('source')).forEach((source) => {
           preview.appendChild(source.cloneNode(true));
         });
         preview.controls = true;
         preview.autoplay = true;
-        preview.loop = teaser.loop;
-        preview.muted = teaser.muted;
+        preview.loop = media.loop;
+        preview.muted = media.muted;
         preview.playsInline = true;
-        lightboxMedia.appendChild(preview);
+        teaserLightboxMedia.appendChild(preview);
         preview.load();
       } else {
         const preview = document.createElement('img');
-        preview.src = teaser.currentSrc || teaser.src;
-        preview.alt = teaser.alt || '';
-        lightboxMedia.appendChild(preview);
+        preview.src = media.dataset.full || media.currentSrc || media.src;
+        preview.alt = media.alt || '';
+        teaserLightboxMedia.appendChild(preview);
       }
 
-      lightbox.hidden = false;
+      teaserLightbox.hidden = false;
       document.body.classList.add('teaser-lightbox-open');
-      lightboxClose.focus();
+      teaserLightboxClose.focus();
     }
 
     function closeTeaserLightbox() {
-      if (lightbox.hidden) return;
+      if (teaserLightbox.hidden) return;
 
-      lightbox.hidden = true;
+      teaserLightbox.hidden = true;
       document.body.classList.remove('teaser-lightbox-open');
-      lightboxMedia.replaceChildren();
+      teaserLightboxMedia.replaceChildren();
 
       if (activeTeaser) {
         activeTeaser.focus();
@@ -725,12 +864,23 @@
       }
     }
 
-    document.querySelectorAll('.paper-image img, .paper-video video').forEach((teaser) => {
-      teaser.tabIndex = 0;
-      teaser.setAttribute('role', 'button');
-      teaser.setAttribute('aria-label', `Open larger teaser: ${teaser.alt || 'Paper teaser'}`);
+    document.querySelectorAll('.teaser').forEach((teaser) => {
+      const media = getTeaserMedia(teaser);
+      if (!media) return;
 
-      teaser.addEventListener('click', () => openTeaserLightbox(teaser));
+      teaser.setAttribute('aria-haspopup', 'dialog');
+      teaser.setAttribute('aria-label', `Open larger teaser: ${media.alt || teaser.getAttribute('aria-label') || 'Paper teaser'}`);
+
+      if (!teaser.hasAttribute('href')) {
+        teaser.tabIndex = 0;
+        teaser.setAttribute('role', 'button');
+      }
+
+      teaser.addEventListener('click', (event) => {
+        event.preventDefault();
+        openTeaserLightbox(teaser);
+      });
+
       teaser.addEventListener('keydown', (event) => {
         if (event.key === 'Enter' || event.key === ' ') {
           event.preventDefault();
@@ -739,14 +889,13 @@
       });
     });
 
-    lightboxClose.addEventListener('click', closeTeaserLightbox);
-    lightbox.addEventListener('click', (event) => {
-      if (event.target === lightbox) closeTeaserLightbox();
+    teaserLightboxClose.addEventListener('click', closeTeaserLightbox);
+    teaserLightbox.addEventListener('click', (event) => {
+      if (event.target === teaserLightbox) closeTeaserLightbox();
     });
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') closeTeaserLightbox();
     });
   </script>
-
 </body>
 </html>
