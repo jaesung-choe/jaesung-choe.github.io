@@ -152,7 +152,7 @@
     }
 
     .section-lead {
-      max-width: 720px;
+      max-width: 100%;
       margin: -6px 0 24px;
       color: var(--muted);
     }
@@ -406,12 +406,32 @@
     @media (max-width: 860px) {
       .hero {
         grid-template-columns: 1fr;
-        gap: 28px;
+        gap: 18px;
+        align-items: start;
+      }
+
+      .hero-copy {
+        display: contents;
+      }
+
+      .hero h1 {
+        order: 1;
       }
 
       .profile-frame {
-        width: min(260px, 72vw);
+        order: 2;
+        width: min(220px, 60vw);
         justify-self: start;
+      }
+
+      .hero-summary {
+        order: 3;
+        margin-top: 0;
+      }
+
+      .link-row {
+        order: 4;
+        margin-top: 4px;
       }
 
       .focus-grid {
@@ -447,7 +467,8 @@
       }
 
       .profile-frame {
-        width: min(220px, 80vw);
+        width: min(176px, 55vw);
+        justify-self: center;
       }
 
       .news-list li,
@@ -469,14 +490,14 @@
       <a class="site-mark" href="#">Jaesung Choe</a>
       <div class="nav-links">
         <a href="#research">Research</a>
-        <a href="#mentorship">Mentorship</a>
         <a href="#publications">Publications</a>
+        <a href="#mentorship">Mentorship</a>
         <a href="mailto:jchoe@nvidia.com">Contact</a>
       </div>
     </nav>
 
     <header class="hero">
-      <div>
+      <div class="hero-copy">
         <h1>Jaesung Choe</h1>
         <p class="hero-summary">
           I am a research scientist at <a href="https://research.nvidia.com/labs/twn/">NVIDIA Research Taiwan</a>.
@@ -497,6 +518,7 @@
     <main>
       <section id="news" aria-labelledby="news-title">
         <h2 id="news-title">News</h2>
+        <p class="column-note">📌 <strong>University collaboration is always open!</strong><br>If your research interests match mine and you have an idea you would like to discuss and develop together, please feel free to contact me about possible collaboration. For university collaboration, shared research interests are the most important factor.</p>
         <ul class="news-list">
           <li>
             <span class="date">Jun 2026</span>
@@ -512,46 +534,21 @@
       <section id="research" aria-labelledby="research-title">
         <h2 id="research-title">Research</h2>
         <p class="section-lead">
-          My research extends 3D scene understanding beyond reconstruction and rendering toward embodied reasoning, exploration, and vision-language action.
+          My research starts from 3D scene understanding including perception, reconstruction and rendering. Nowadays, I am working on 3D scene interaction where embodied agents do reasoning and exploration.
         </p>
         <div class="focus-grid">
           <article class="focus-item">
-            <h3>3D Scene Understanding</h3>
-            <p>Open-vocabulary 3D representations, multi-view reasoning, and scene-level grounding.</p>
+            <h3>Perception</h3>
+            <p>Segmentation, grounding, and reasoning in 3D scenes.</p>
           </article>
           <article class="focus-item">
             <h3>Reconstruction and Rendering</h3>
-            <p>Voxel, Gaussian, and neural scene representations for efficient high-fidelity rendering.</p>
+            <p>Pointcloud, voxel, and Gaussian for representing 3D scenes</p>
           </article>
           <article class="focus-item">
-            <h3>Embodied Agents in 3D Scene</h3>
-            <p>Vision-language navigation and embodied reasoning that connect perception to decisions.</p>
+            <h3>Embodied Agents</h3>
+            <p>Action and exploration in real-world or 3D simulators.</p>
           </article>
-        </div>
-      </section>
-
-      <section id="mentorship" aria-labelledby="mentorship-title">
-        <h2 id="mentorship-title">Mentorship and Collaboration</h2>
-        <div class="mentorship-stack">
-          <div>
-            <h3>Research Intern Mentorship</h3>
-            <p class="column-note">If you are interested in the research internship position, feel free to send me an email.</p>
-            <ul class="year-list">
-              <li><span class="year">2026</span><span><a href="https://ug-kim.github.io/">Kim Yu-Ji</a>, POSTECH -> with me</span></li>
-              <li><span class="year">2024</span><span><a href="https://jeongyw12382.github.io/">Yoonwoo Jeong</a>, POSTECH -> with me -> Meta internship</span></li>
-              <li><span class="year">2023</span><span><a href="https://chrockey.github.io/">Chunghyun Park</a>, POSTECH -> with me</span></li>
-            </ul>
-          </div>
-          <div>
-            <h3>Academic Collaboration</h3>
-            <p class="column-note">📌 <strong>[notice] University collaboration is open!</strong><br>If your research interests match mine and you have an idea you would like to discuss and develop together, please feel free to contact me about possible collaboration. For university collaboration, shared research interests are the most important factor.</p>
-            <ul class="year-list">
-              <li><span class="year">2026</span><span>Open (feel free to reach out if interested!)</span></li>
-              <li><span class="year">2025</span><span><a href="https://alvin0808.github.io/">Seunghun Oh</a>, Seoul National University -> with me -> UCLA</span></li>
-              <li><span class="year">2025</span><span><a href="https://ug-kim.github.io/">Kim Yu-Ji</a>, POSTECH -> with me -> NVIDIA internship</span></li>
-              <li><span class="year">2024</span><span><a href="https://kim-junseong.github.io/">Kim Jun-Seong</a>, POSTECH -> with me -> Huawei/Meta internship</span></li>
-            </ul>
-          </div>
         </div>
       </section>
 
@@ -786,6 +783,30 @@
                 <p class="paper-links"><a href="https://www.roboticsproceedings.org/rss15/p16.html">Paper</a></p>
               </div>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="mentorship" aria-labelledby="mentorship-title">
+        <h2 id="mentorship-title">Mentorship and Collaboration</h2>
+        <div class="mentorship-stack">
+          <div>
+            <h3>Research Intern Mentorship</h3>
+            <p class="column-note">If you are interested in the research internship position, feel free to send me an email.</p>
+            <ul class="year-list">
+              <li><span class="year">2026</span><span><a href="https://ug-kim.github.io/">Kim Yu-Ji</a>, POSTECH -> with me</span></li>
+              <li><span class="year">2024</span><span><a href="https://jeongyw12382.github.io/">Yoonwoo Jeong</a>, POSTECH -> with me -> Meta internship</span></li>
+              <li><span class="year">2023</span><span><a href="https://chrockey.github.io/">Chunghyun Park</a>, POSTECH -> with me</span></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Academic Collaboration</h3>
+            <ul class="year-list">
+              <li><span class="year">2026</span><span>Open (feel free to reach out if interested!)</span></li>
+              <li><span class="year">2025</span><span><a href="https://alvin0808.github.io/">Seunghun Oh</a>, Seoul National University -> with me -> UCLA</span></li>
+              <li><span class="year">2025</span><span><a href="https://ug-kim.github.io/">Kim Yu-Ji</a>, POSTECH -> with me -> NVIDIA internship</span></li>
+              <li><span class="year">2024</span><span><a href="https://kim-junseong.github.io/">Kim Jun-Seong</a>, POSTECH -> with me -> Huawei/Meta internship</span></li>
+            </ul>
           </div>
         </div>
       </section>
