@@ -131,24 +131,26 @@
     }
     
     .paper-image {
-      flex: 0 0 200px; /* Fixed width for paper thumbnails */
+      flex: 0 0 300px; /* Fixed width for paper thumbnails */
     }
     
     .paper-image img {
       width: 100%;
+      height: auto;
       border-radius: 4px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     /* Video Container (Identical to .paper-image) */
     .paper-video {
-      flex: 0 0 200px; /* Fixed width matching paper-image */
+      flex: 0 0 300px; /* Fixed width matching paper-image */
       margin-top: 0;   /* Ensures top alignment */
     }
 
     /* Video Element Styles */
     .paper-video video {
       width: 100%;
+      height: auto;
       border-radius: 4px; /* Matches your image style */
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       display: block; /* Removes tiny gap below video */
@@ -165,12 +167,16 @@
         flex-direction: column;
       }
       .paper-image {
+        flex: none;
+        width: min(300px, 100%);
         margin: 0 auto;
-        max-width: 200px;
+        max-width: 300px;
       }
       .paper-video {
+        flex: none;
+        width: min(300px, 100%);
         margin: 0 auto;
-        max-width: 200px;
+        max-width: 300px;
       }
     }
   </style>
@@ -203,8 +209,8 @@
     <section> <!-- News -->
       <h2>News</h2>
       <ul class="news-list">
-        <li><strong>Nov 2025:</strong> <a href="https://research.nvidia.com/labs/twn/">NVIDIA Research Taiwan</a> is currently hiring for a full-time research position.</li>
-        <li><strong>Feb 2025:</strong> Three papers have been accepted to CVPR 2025.</li>
+        <li><strong>Jun 2026:</strong> One paper has been accepted to ECCV 2026.</li>
+        <li><strong>Mar 2026:</strong> One paper has been accepted to CVPR 2026.</li>
       </ul>
     </section>
 
@@ -215,24 +221,45 @@
         Representative papers are highlighted.
       </p>
 
-      <article class="paper"> <!-- gauss_explorer -->
+      <article class="paper highlight"> <!-- dvsm -->
         <div class="paper-image">
-          <img src="images/gauss_explorer.png" alt="GaussExplorer Thumbnail">
+          <img src="images/dvsm.png" alt="DVSM Thumbnail">
         </div>
         <div class="paper-content">
           <h3>
-            <a href="https://gaussexplorer.github.io/">GaussExplorer: 3D Gaussian Splatting for Embodied Exploration and Reasoning</a>
+            <a href="https://arxiv.org/abs/2605.29891">DVSM: Decoder-only View Synthesis Model Done Right</a>
+          </h3>
+          <p class="authors">
+            Cheng Sun, <strong>Jaesung Choe</strong>, Min-Hung Chen, Ryo Hachiuma, Yu-Chiang Frank Wang
+          </p>
+          <p class="venue"><em>arXiv 2026</em></p>
+          <p class="description">
+            A decoder-only view synthesis model that represents scenes as a KV-cache and shares weights between reconstruction and rendering. </br>
+            <em>+ NVIDIA research paper.</em>
+          </p>
+          <p class="links">
+            [<a href="https://arxiv.org/abs/2605.29891">Paper</a>]
+          </p>
+        </div>
+      </article>
+
+      <article class="paper"> <!-- splatreasoner -->
+        <div class="paper-image">
+          <img src="images/splatreasoner_v3.png" alt="SplatReasoner Thumbnail">
+        </div>
+        <div class="paper-content">
+          <h3>
+            <a href="#">SplatReasoner: Enhancing Embodied Reasoning and Grounding by Novel View Synthesis</a>
           </h3>
           <p class="authors">
             Kim Yu-Ji, Dahye Lee, Kim Jun-Seong, GeonU Kim, Nam Hyeon-Woo, Yongjin Kwon, Yu-Chiang Frank Wang, <strong>Jaesung Choe</strong>, Tae-Hyun Oh.  </br>
           </p>
-          <p class="venue"><em>arXiv, 2026</em></p>
+          <p class="venue"><em>ECCV 2026</em></p>
           <p class="description">
-            Embodied reasoning on 3D scenes using 3D Gaussian Splatting. </br>
+            It shows that novel-view synthesis improves the reasoning capabilities of embodied agents. </br>
             <em>+ Academic collaboration with KAIST and POSTECH.</em>
           </p>
           <p class="links">
-            [<a href="https://gaussexplorer.github.io/">Project</a>]
             [<a href="https://arxiv.org/abs/2601.13132">Paper</a>]
           </p>
         </div>
@@ -249,9 +276,9 @@
           <p class="authors">
             Yoonwoo Jeong, Cheng Sun, Yu-Chiang Frank Wang, Minsu Cho, <strong>Jaesung Choe</strong>
           </p>
-          <p class="venue"><em>arXiv, 2026</em></p>
+          <p class="venue"><em>arXiv 2026</em></p>
           <p class="description">
-            A framework for multi-view promptable segmentation that achieves 3D consistency using pointmaps—3D points reconstructed from unposed images by recent visual geometry models, such as VGGT, PI3, etc. </br>
+            Multi-view promptable segmentation that achieves 3D consistency using pointmaps. </br>
             <em>+ NVIDIA research paper.</em>
           </p>
           <p class="links">
@@ -272,7 +299,7 @@
           <p class="authors">
             Sheng-Yu Huang, <strong>Jaesung Choe</strong>, Yu-Chiang Frank Wang, Cheng Sun
           </p>
-          <p class="venue"><em>CVPR, 2026</em></p>
+          <p class="venue"><em>CVPR 2026</em></p>
           <p class="description">
             We attach natural language descriptions to 3D sparse voxels — enabling any VLM or LLM to directly reason over 3D scenes. </br>
             <em>+ NVIDIA research paper.</em>
@@ -295,7 +322,7 @@
           <p class="authors">
             Seunghun Oh, <strong>Jaesung Choe</strong>, Dongjae Lee, Daeun Lee, Seunghoon Jeong, Yu-Chiang Frank Wang, Jaesik Park.
           </p>
-          <p class="venue"><em>arXiv, 2025</em></p>
+          <p class="venue"><em>arXiv 2025</em></p>
           <p class="description">
             We strengthen voxel-wise associations among parent-child and sibling voxel groups, 
             resulting in smoother surface reconstruction. </br>
@@ -320,7 +347,7 @@
           <p class="authors">
             Yoonwoo Jeong, Cheng Sun, Yu-Chiang Frank Wang, Minsu Cho, <strong>Jaesung Choe</strong>
           </p>
-          <p class="venue"><em>arXiv, 2025</em></p>
+          <p class="venue"><em>arXiv 2025</em></p>
           <p class="description">
             An efficient rendering algorithm for 3D Gaussians that involve high-dimensional feature vectors. Our Q-render achieves ∼43.7× speed gains compared to recent studies when rendering 512-D feature maps. </br>
             <em>+ NVIDIA research paper.</em>
@@ -343,7 +370,7 @@
           <p class="authors">
             Kim Jun-Seong, GeonU Kim, Kim Yu-Ji, Yu-Chiang Frank Wang, <strong>Jaesung Choe*</strong>, Tae-Hyun Oh*
           </p>
-          <p class="venue"><em>CVPR, 2025 (highlight Top 3.7%)</em></p>
+          <p class="venue"><em>CVPR 2025 (highlight Top 3.7%)</em></p>
           <p class="description">
             Distill language knowledge into 3D Gaussian Splatting. </br>
             <em>+ Winner of Qualcomm Innovation Fellowship Korea</em> </br>
@@ -368,7 +395,7 @@
           <p class="authors">
             Junha Lee*, Chunghyun Park*, <strong>Jaesung Choe</strong>, Yu-Chiang Frank Wang, Jan Kautz, Minsu Cho, Christopher Choy
           </p>
-          <p class="venue"><em>CVPR, 2025</em></p>
+          <p class="venue"><em>CVPR 2025</em></p>
           <p class="description">
             Introduce a data generation pipeline that leverages 2D foundation models to synthesize 3D mask-text paired data. </br>
             <em>+ NVIDIA research paper.</em>
@@ -393,7 +420,7 @@
           <p class="authors">
             Cheng Sun, <strong>Jaesung Choe</strong>, Charles Loop, Wei-Chiu Ma, Yu-Chiang Frank Wang
           </p>
-          <p class="venue"><em>CVPR, 2025</em></p>
+          <p class="venue"><em>CVPR 2025</em></p>
           <p class="description">
             Extend the rasterization technique into the sparse voxel representation for the image rendering task. </br>
             <em>+ NVIDIA research paper.</em>
@@ -420,7 +447,7 @@
           <p class="authors">
             <strong>Jaesung Choe</strong>, Christopher Choy, Jaesik Park, In So Kweon, Anima Anandkumar
           </p>
-          <p class="venue"><em>ICCV, 2023</em></p>
+          <p class="venue"><em>ICCV 2023</em></p>
           <p class="description">
             Apply spacetime surface regularization technique for 4D surface reconstruction and dynamic scene rendering. </br>
             <em>+ NVIDIA research paper.</em>
@@ -442,7 +469,7 @@
           <p class="authors">
             <strong>Jaesung Choe*</strong>, Chunghyun Park*, Francois Rameau, Jaesik Park, In So Kweon
           </p>
-          <p class="venue"><em>ECCV, 2022</em></p>
+          <p class="venue"><em>ECCV 2022</em></p>
           <p class="description">
             Design a new MLP-only architecture for 3D points.
           </p>
@@ -464,7 +491,7 @@
           <p class="authors">
             <strong>Jaesung Choe*</strong>, ByeongIn Joung*, Francois Rameau, Jaesik Park, In So Kweon
           </p>
-          <p class="venue"><em>ICLR, 2022</em></p>
+          <p class="venue"><em>ICLR 2022</em></p>
           <p class="description">
             Perform the point cloud upsampling and denoising tasks simultaneously. Demonstrate good generalization performance.
           </p>
@@ -485,7 +512,7 @@
           <p class="authors">
             <strong>Jaesung Choe</strong>, Sunghoon Im, Francois Rameau, Minjun Kang, In So Kweon
           </p>
-          <p class="venue"><em>ICCV, 2021</em></p>
+          <p class="venue"><em>ICCV 2021</em></p>
           <p class="description">
             Propose deep learning based depth fusion algorithm for indoor scene reconstruction.
           </p>
@@ -506,7 +533,7 @@
           <p class="authors">
             <strong>Jaesung Choe</strong>, Kyungdon Joo, Tooba Imtiaz, In So Kweon
           </p>
-          <p class="venue"><em>RA-L, 2021</em></p>
+          <p class="venue"><em>RA-L 2021</em></p>
           <p class="description">
             Estimation dense depth maps by fusing LiDAR points and stereo images.
           </p>
